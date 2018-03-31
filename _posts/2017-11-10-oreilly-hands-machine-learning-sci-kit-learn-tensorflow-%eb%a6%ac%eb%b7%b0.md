@@ -9,7 +9,7 @@ dsq_thread_id:
   - "6273078875"
 image: /wp-content/uploads/2017/11/cropped-nature-2609118-1-250x250.jpg
 categories:
-  - Daily life
+  - Book
 ---
 
 <img class="aligncenter wp-image-284 size-full" src="http://dllab.xyz/wp-content/uploads/2017/11/11.jpg" alt="" width="727" height="783" />

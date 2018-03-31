@@ -7,8 +7,10 @@ layout: post
 permalink: '/%ea%b3%b5%ec%82%b0%eb%8b%b9-%ec%84%a0%ec%96%b8-%ec%b9%bc-%eb%a7%88%eb%a5%b4%ed%81%ac%ec%8a%a4-%ec%97%a5%ea%b2%94%ec%8a%a4/'
 dsq_thread_id:
   - "6468137215"
+tags:
+   - book
 categories:
-  - Writing
+  - Book
 ---
 
 글쓴이는 공산당과 아무런 관련이 없음을 밝힌다.

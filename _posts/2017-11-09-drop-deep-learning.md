@@ -9,7 +9,7 @@ dsq_thread_id:
   - "6270702576"
 image: /wp-content/uploads/2017/11/cesar-couto-423267.jpg
 categories:
-  - Studying
+  - Paper
 ---
 <h2>Dropout: A Simple Way to Prevent Neural Networks from Overfitting - Geoffrey Hinton et tal.</h2>
 많은 뉴런과 레이어가 있는 인공신경망은 이전에 있었던 기계학습과는 비교할 수 없이 강력한 기계학습 방법이다. 하지만 모든 기계학습이 그렇듯, 인공신경망도 overfitting이라는 난간을 마주친다. 인공신경망의 특성상 overffiting은 아주 빈번하고 항상 일어나는 문제이다. Geoffrey Hinton은 drop out이라는 방법을 소개하여 overfitting을 소개한다.

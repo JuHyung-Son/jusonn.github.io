@@ -6,6 +6,9 @@ author: JuHyung Son
 layout: post
 permalink: '/%ec%89%bd%ea%b2%8c-%eb%b3%b8-measure-theory/'
 image: /wp-content/uploads/2017/11/IMG_3818.jpg
+tags:
+   - Measure theory
+   - probability
 categories:
   - MATH
 ---

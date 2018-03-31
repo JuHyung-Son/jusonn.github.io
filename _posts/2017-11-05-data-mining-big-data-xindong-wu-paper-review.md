@@ -9,7 +9,7 @@ dsq_thread_id:
   - "6264113280"
 image: /wp-content/uploads/2017/11/R1920x0-250x250.png
 categories:
-  - Studying
+  - Paper
 ---
 <h1>Data Mining with Big Data</h1>
 빅 데이터(Big Data)는 큰 사이즈,복잡도, 어떠한 복잡한 소스로 부터 나오는 것들을 고려한다. 네트워크, 저장 기술의 발달로 빅데이터는 과학, 공학 분야에서 빠르게 성장하고 있다. 이 논문에서는 HACE theorem이라는 빅데이터가 가지는 특징을 특성화한 정리를 소개한다.

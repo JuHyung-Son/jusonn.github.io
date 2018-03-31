@@ -8,6 +8,9 @@ permalink: '/%ea%b0%9c%eb%af%b8-%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98-ant-colony-
 dsq_thread_id:
   - "6278647869"
 image: /wp-content/uploads/2017/11/cropped-IMG_5429-1-250x250.jpg
+tags:
+   - optimization
+   - 최적화
 categories:
   - Studying
 ---

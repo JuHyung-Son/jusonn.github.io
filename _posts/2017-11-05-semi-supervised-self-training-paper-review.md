@@ -9,7 +9,7 @@ dsq_thread_id:
   - "6264423455"
 image: /wp-content/uploads/2017/11/R1920x0-7-250x250.png
 categories:
-  - Studying
+  - Paper
 ---
 <h1>Semi-supervised self-training for decision tree classifiers</h1>
 <h1>Afar Tanha et tal.</h1>

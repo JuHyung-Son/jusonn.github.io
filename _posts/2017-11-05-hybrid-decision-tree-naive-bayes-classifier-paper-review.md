@@ -9,7 +9,7 @@ dsq_thread_id:
   - "6264392248"
 image: /wp-content/uploads/2017/11/R1920x0-2-250x250.png
 categories:
-  - Studying
+  - Paper
 ---
 <h2>Hybrid decision tree and naive Bayes classifier for multi-class classification tasks, Dewan Md. Farid et tal.</h2>
 이 논문은 Decision tree와 Naive Bayes classifier 의 정확성을 향상시키는 방법에 대한 논문이다. 논문 제목에서 볼 수 있듯이 저자는 이 둘은 결합한 알고리즘을 제안한다.

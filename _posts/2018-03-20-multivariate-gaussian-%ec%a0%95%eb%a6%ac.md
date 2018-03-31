@@ -6,6 +6,9 @@ author: JuHyung Son
 layout: post
 permalink: '/multivariate-gaussian-%ec%a0%95%eb%a6%ac/'
 image: /wp-content/uploads/2017/11/cropped-nature-2609118-2-250x250.jpg
+tags:
+   - Gaussian
+   - Multivariate
 categories:
   - Deep Learning
   - MATH

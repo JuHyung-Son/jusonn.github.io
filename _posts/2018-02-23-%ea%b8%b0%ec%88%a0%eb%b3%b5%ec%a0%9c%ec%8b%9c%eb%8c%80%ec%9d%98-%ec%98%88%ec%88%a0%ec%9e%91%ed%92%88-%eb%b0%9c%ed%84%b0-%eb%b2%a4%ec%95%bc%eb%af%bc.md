@@ -5,8 +5,10 @@ date: 2018-02-23T19:07:33+00:00
 author: JuHyung Son
 layout: post
 permalink: '/%ea%b8%b0%ec%88%a0%eb%b3%b5%ec%a0%9c%ec%8b%9c%eb%8c%80%ec%9d%98-%ec%98%88%ec%88%a0%ec%9e%91%ed%92%88-%eb%b0%9c%ed%84%b0-%eb%b2%a4%ec%95%bc%eb%af%bc/'
+tags:
+   - book
 categories:
-  - Writing
+  - Book
 ---
 
 *진실은 그가 할 수 있는 것이다. 허위는 그가 원하는 것이다. - 마담 드 뒤라스*

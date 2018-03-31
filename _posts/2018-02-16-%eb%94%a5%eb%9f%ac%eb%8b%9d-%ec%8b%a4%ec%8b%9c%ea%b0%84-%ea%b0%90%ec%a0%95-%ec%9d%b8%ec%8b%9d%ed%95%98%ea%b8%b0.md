@@ -8,6 +8,9 @@ permalink: '/%eb%94%a5%eb%9f%ac%eb%8b%9d-%ec%8b%a4%ec%8b%9c%ea%b0%84-%ea%b0%90%e
 dsq_thread_id:
   - "6481954303"
 image: /wp-content/uploads/2018/02/스크린샷-2018-02-15-오후-10.47.33-250x250.png
+tags:
+   - emotion detection
+   - 표정 탐지
 categories:
   - VISION
 ---

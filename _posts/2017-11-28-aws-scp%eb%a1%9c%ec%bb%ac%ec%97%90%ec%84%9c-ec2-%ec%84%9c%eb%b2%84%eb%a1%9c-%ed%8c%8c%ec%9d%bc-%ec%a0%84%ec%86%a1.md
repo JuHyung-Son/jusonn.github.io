@@ -8,6 +8,9 @@ permalink: '/aws-scp%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%9c-ec2-%ec%84%9c%eb%b2%84%
 dsq_thread_id:
   - "6313621152"
 image: /wp-content/uploads/2017/11/texture-1444488.jpg
+tags:
+   - 우분투
+   - ssh
 categories:
   - Dev
 ---

@@ -8,6 +8,8 @@ permalink: '/back-propagation-%eb%94%a5%eb%9f%ac%eb%8b%9d%ec%9d%98-%ec%8b%9c%ec%
 dsq_thread_id:
   - "6275349495"
 image: /wp-content/uploads/2017/11/IMG_5429.jpg
+tags:
+   - backpropagation
 categories:
   - Deep Learning
 ---

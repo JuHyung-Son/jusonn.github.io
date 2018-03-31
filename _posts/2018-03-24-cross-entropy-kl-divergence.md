@@ -6,6 +6,9 @@ author: JuHyung Son
 layout: post
 permalink: /cross-entropy-kl-divergence/
 image: /wp-content/uploads/2017/11/cropped-IMG_5429-1-250x250.jpg
+tags:
+   - DL
+   - entropy
 categories:
   - Deep Learning
 ---

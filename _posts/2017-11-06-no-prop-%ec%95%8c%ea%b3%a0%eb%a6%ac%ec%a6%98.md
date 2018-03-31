@@ -9,7 +9,7 @@ dsq_thread_id:
   - "6265755109"
 image: /wp-content/uploads/2017/11/15ZuLCsB1KXEPgHu-qJ8WxQ-250x250.png
 categories:
-  - Studying
+  - Paper
 ---
 <h1>The No Prop algorithm: A new learning algorithm for multilayer neural networks</h1>
 <h3>Bernard Widrow∗, Aaron Greenblatt, Youngsik Kim, Dookun Park</h3>
