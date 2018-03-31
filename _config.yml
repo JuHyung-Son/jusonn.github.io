@@ -26,11 +26,11 @@ baseurl: # the subpath of your site, e.g. /blog
 title: JuHyung Son
 description: "A blog of JuWorld"
 keywords: 'jekyll,Machine Learning,Deep learning,blog'
-author:
-  name:
-  job_title:
-  location:
-  email:
+author: 손주형
+  name:  손주형
+  job_title: Student
+  location: South Korea
+  email: sonju0427@gmail.com
   social_links:
     - name: github
       url: https://github.com/jusonn
@@ -47,7 +47,7 @@ disqus:
   shortname: jusonn
   public_key: # e.g. ULZ0b9TFefCUJHKQd4JCKv2v3u27YoG7YG8zXPewkWrT333Z0Se9YnxLzoV6VM8W
 google_analytics: UA-87765338-5 # e.g. 'UA-42456515-5'
-addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5
+addthis_public_id: 6iyn3jyQGeFL638dtQOAbnuY3WVvvUgGQ10OF2txbqPXPus8rsm01RvyR8MiWI8J # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5
 
 paths:
   home: /
