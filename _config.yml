@@ -26,11 +26,11 @@ baseurl: # the subpath of your site, e.g. /blog
 title: JuHyung Son
 description: "A blog of JuWorld"
 keywords: 'jekyll,Machine Learning,Deep learning,blog'
-author: 손주형
-  name:  손주형
-  job_title: Student
-  location: South Korea
-  email: sonju0427@gmail.com
+author:
+  name: 
+  job_title:
+  location:
+  email:
   social_links:
     - name: github
       url: https://github.com/jusonn
