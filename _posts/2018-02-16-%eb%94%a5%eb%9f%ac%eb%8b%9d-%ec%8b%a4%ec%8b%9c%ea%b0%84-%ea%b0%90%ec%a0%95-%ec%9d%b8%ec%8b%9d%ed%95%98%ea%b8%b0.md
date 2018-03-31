@@ -14,6 +14,7 @@ tags:
 categories:
   - VISION
 ---
+{:toc}
 <h2>Intro</h2>
 <img class="aligncenter size-full wp-image-702" src="http://dllab.xyz/wp-content/uploads/2018/02/스크린샷-2018-02-15-오후-10.47.33.png" alt="" width="705" height="684" /> 저번의 미소 인식을 좀 더 업데이트하여 표정에서 나타나는 감정 인식을 해보았다. 미소 인식에선 미소 짓는 표정과 아닌 표정 두가지 뿐이라 상대적으로 데이터가 간단해 학습이 간단했다. 또 미소는 표정만으로 미소이다 혹은 아니다 라고 구분이 가능해서 고려할 것이 많지 않았다. 실제로 인간이 느끼기에 슬픈거나 억지로 하는 미소는 신경쓰지 않기 때문이다.
 
