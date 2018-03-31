@@ -4,14 +4,11 @@ title: 쉽게 본 Measure Theory ~ Probability
 date: 2018-02-24T02:53:17+00:00
 author: JuHyung Son
 layout: post
-guid: http://dllab.xyz/?p=726
 permalink: '/%ec%89%bd%ea%b2%8c-%eb%b3%b8-measure-theory/'
 image: /wp-content/uploads/2017/11/IMG_3818.jpg
-use_math: true
 categories:
   - MATH
 ---
-[catlist categorypage = "yes"]
 
 Youtube의 mathematical monk 채널을 구독 중입니다.
 <h1>Measure Theory</h1>
