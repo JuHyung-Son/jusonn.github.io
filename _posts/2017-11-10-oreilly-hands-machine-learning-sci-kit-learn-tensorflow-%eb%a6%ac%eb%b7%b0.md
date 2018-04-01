@@ -11,16 +11,16 @@ image: /wp-content/uploads/2017/11/cropped-nature-2609118-1-250x250.jpg
 categories:
   - Book
 ---
+{:toc}
+<img class="aligncenter wp-image-284 size-full" src="../wp-content/uploads/2017/11/11.jpg" alt="" width="727" height="783" />
 
-<img class="aligncenter wp-image-284 size-full" src="http://dllab.xyz/wp-content/uploads/2017/11/11.jpg" alt="" width="727" height="783" />
-
-3개월 정도 이 책을 보는 중이다. 진도는 천천히 나가면서 필요할 때 마다 찾아서 읽어보고 코드를 찾아보는 정도로 읽는 중이다. 이제 챕터 11까지 끝내고 CNN과 RNN을 남겨두고 있고 여기까지의 리뷰를 짤막하게 작성한다.
+약 5개월 동안 천천히 읽으며 공부했던 책으로 국내외로 평이 좋은 책이다. 그 때문인지 인터넷에서는 찾기가 매우 힘들었고 나는 결국 책을 아마존에서 구매했다. 이 책의 반은 기본적인 기계학습 개념에 관한 내용이다. 기계학습의 모든 알고리즘을 소개하기 보다는 딥러닝에 기초가 되는 부분만을 추려놓았고 sklearn으로 직접 코드를 돌려본다. 다음은 텐서플로를 이용한 딥러닝이 반을 이룬다. 텐서플로로 짜는 선형회귀부터 Autoender까지 꽤 넒은 부분을 다루는데 체계적인 텐서플로 코드가 인상깊다. 개인적으로는 딥러닝을 배우기보단 텐서플로 코딩을 배우는데 좋았다.
 <h4>1. The machine learning Landscape</h4>
-다른 책들과 마찬가지로 머신러닝이 무엇인지 개념부터 잡는다. 그리고 머신러닝이 다루는 문제와 머신러닝에 대한 전체적인 틀을 보는 챕터이다. 이전에 머신러닝에 대해 공부를 해보았다면 넘어가거나 가볍게 읽는 정도로 넘어갈 수 있다.
-<h5>2. End-to-End Machine learning project</h5>
-LA 집값 데이터를 가지고 실제 프로젝트를 해본다. 데이터 전처리부터 Fine Tuning 까지 정말 처음부터 끝까지 보여준다. 데이터를 전처리하는 부분에 신경을 많이 쓴 듯하다. 한 과정에도 여러가지 방법을 보여주는데 이 부분이 도움이 된다. 코드 자체가 매우 고급지게 짜였다. 이런 방식으로 코드를 짜는 것을 연습해보고 있다. 그렇지만 데이터가 워낙 단순해 실제로 비슷한 코드를 짜는데는 연습이 필요할 거 같다. 가장 좋은 점이 간단한 과정에도 고급진 코딩을 볼 수 있다는 것이다. 마치 캐글 kernel을 보는 듯 하다.
+다른 책들과 마찬가지로 기계학습이 무엇인지 개념부터 잡는다. 기계학습이 다루는 문제와 기계학습에 대한 전체적인 틀을 보는 챕터이다. 이전에 기계학습에 대해 공부를 해보았다면 넘어가거나 가볍게 읽는 정도로 넘어갈 수 있다.
+<h4>2. End-to-End Machine learning project</h4>
+LA 집값 데이터를 가지고 실제 기계학습을 해본다. 데이터 전처리부터 Fine Tuning 까지 정말 처음부터 끝까지 보여준다. 데이터를 전처리하는 부분에 신경을 많이 쓴 듯하다. 한 과정에도 여러가지 방법을 보여주는데 이 부분이 도움이 된다. 코드 자체가 매우 고급지게 짜였다. 이런 방식으로 코드를 짜는 것을 연습해보고 있다. 그렇지만 데이터가 워낙 단순해 실제로 비슷한 코드를 짜는데는 연습이 필요할 거 같다. 가장 좋은 점이 간단한 과정에도 고급진 코딩을 볼 수 있다는 것이다. 마치 캐글 kernel을 보는 듯 하다.
 <h4>3. Classification</h4>
-유명한 MNIST 데이터를 가지고 분류를 해본다. Classification의 기초는 performance measure이다. 역시나 이 장은 measuring에 신경을 썼다. 이 measuring 부분은 중요한 부분이니 자세히 보는 것이 좋다. 알고리즘 자체는 SVM이나 K Neighbor과 같은 코드를 돌리기만 하면 되는 것이라 간단하게 소개하고 차이를 보여준다. 제목은 classification이지만, classification performance measure로 생각하면 된다.
+유명한 MNIST 데이터를 가지고 분류를 해본다. Classification의 기초는 performance measure이다. 역시나 이 장은 measuring에 신경을 썼다. 알고리즘 자체는 SVM이나 K Neighbor과 같은 코드를 돌리기만 하면 되는 것이라 간단하게 소개하고 차이를 보여준다. 제목은 classification이지만, classification performance measure로 생각하면 된다.
 <h4>4. Training Models</h4>
 모델링 방법들에 대해 소개하는 장이다. 처음엔 2장이 regression에 관한 것인줄 알았는데 2장은 머신러닝 과정에 대해 소개만 하는 것이고 이 4장이 regression에 대한 설명이다.  GD, Regularized linear models와 같은 가장 기본적인 regression을 다룬다. sci-kit learn을 이용하여 코드에 대한건 그닥 자세히 나오지는 않는다. 그보단 알고리즘에 대한 소개, 즉 GD, SGD, Ridge이 무엇인지에 더 신경을 썼다. 이 부분은 코드가 별로 없고 설명 뿐이라 대충 넘어갈 수도 있으나 사실 매우 중요한 부분이다. Regression에 대한 기본 개념을 잡자. 학습이라는 것이 무엇인지, overfitting, underfitting에 대한 깨달음? 을 얻자. 또 딥러닝을 하기 위해선 이 부분을 매우 잘 이해하고 넘어가야한다.
 <h4>5,6. SVM, Decision Tree</h4>

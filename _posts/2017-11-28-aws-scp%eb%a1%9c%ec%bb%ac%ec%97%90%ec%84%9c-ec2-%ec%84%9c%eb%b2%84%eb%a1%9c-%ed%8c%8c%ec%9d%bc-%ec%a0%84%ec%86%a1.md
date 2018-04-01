@@ -7,7 +7,7 @@ layout: post
 permalink: '/aws-scp%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%9c-ec2-%ec%84%9c%eb%b2%84%eb%a1%9c-%ed%8c%8c%ec%9d%bc-%ec%a0%84%ec%86%a1/'
 dsq_thread_id:
   - "6313621152"
-image: /wp-content/uploads/2017/11/texture-1444488.jpg
+image: ../wp-content/uploads/2017/11/texture-1444488.jpg
 tags:
    - 우분투
    - ssh
