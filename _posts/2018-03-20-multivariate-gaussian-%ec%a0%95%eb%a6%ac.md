@@ -9,7 +9,6 @@ tags:
    - Gaussian
    - Multivariate
 categories:
-  - Deep Learning
   - MATH
 ---
 <h1>Multivariate Gaussian</h1>

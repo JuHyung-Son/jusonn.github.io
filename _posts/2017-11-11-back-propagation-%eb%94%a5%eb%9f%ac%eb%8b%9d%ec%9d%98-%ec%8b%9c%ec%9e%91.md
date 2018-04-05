@@ -11,7 +11,7 @@ image: /wp-content/uploads/2017/11/IMG_5429.jpg
 tags:
    - backpropagation
 categories:
-  - Deep Learning
+  - Deep_Learning
 ---
 {:toc}
 <h3>Back propagation</h3>

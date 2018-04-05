@@ -12,7 +12,7 @@ tags:
    - emotion detection
    - 표정 탐지
 categories:
-  - VISION
+  - Deep_Learning
 ---
 {:toc}
 <h2>Intro</h2>
