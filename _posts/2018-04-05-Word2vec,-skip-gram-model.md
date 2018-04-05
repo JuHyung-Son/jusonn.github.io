@@ -1,5 +1,5 @@
 ---
-title: 단어 임베딩: Word2Vec, skip gram - 1
+title: 단어 임베딩 Word2Vec, skip gram - 1
 date: 2018-04-05
 author: JuHyung Son
 layout: post
