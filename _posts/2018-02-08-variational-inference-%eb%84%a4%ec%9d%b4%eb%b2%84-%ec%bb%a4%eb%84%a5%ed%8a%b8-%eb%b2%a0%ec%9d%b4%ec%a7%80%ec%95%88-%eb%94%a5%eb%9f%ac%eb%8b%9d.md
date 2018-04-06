@@ -32,25 +32,24 @@ $$ P(Z|X) = \frac {P(Z,X)} {\int _ {z} P(Z _ {z} | X)} $$
 $$ P(Z|X) \approx Q(Z|V) = \prod _ {i} Q(Z _ {i} | V _ {i}) $$
 
 Variational inference에서는 variational distribution이라는 것을 만듭니다. 이건 posterior에 근사하는 분포입니다. Gaussian으로 근사하는 거 같은데 정확히는 아직은 모르겠네요. 다른 것도 되지만 gaussian이 가장 쉽고 좋기 때문에 사용한 거 아닐까요. variational distribution은 다음과 같이 나타냅니다. X는 데이터이고 Z는 근사하는데 사용되는 변수입니다.
-
-이제 우리의 목표는 true posterior에 근접한 variational distribution을 만드는 겁니다. 이 두 분포의 비슷함의 정도는 Kullback-Leibler Divergence 라는 간단히 말해 분포간의 거리를 측정하는 방법으로 계산합니다. 이제 $KL(Q||P)$를 최소화하는 것이 목표죠. 그런데 이 $KL(Q||P)$를 구하는 것도 불가능합니다. 다른 방법을 써야하죠.
+이제 우리의 목표는 true posterior에 근접한 variational distribution을 만드는 겁니다. 이 두 분포의 비슷함의 정도는 Kullback-Leibler Divergence 라는 간단히 말해 분포간의 거리를 측정하는 방법으로 계산합니다. 이제 $ KL(Q || P) $를 최소화하는 것이 목표죠. 그런데 이 $ KL(Q || P) $를 구하는 것도 불가능합니다. 다른 방법을 써야하죠.
 
 그런데 $p(Z|X)$는 다음과 같이 표현이 가능합니다.
 <div align="center">
-<img class="wp-image-680 size-full" src="../wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.36.08.png" alt="" width="766" height="322" /> </div> notation이 조금 다지만, 이해는 가능할 겁니다.
+<img class="wp-image-680 size-full" src="/wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.36.08.png" alt="" width="766" height="322" /> </div> notation이 조금 다지만, 이해는 가능할 겁니다.
 
 이 맨 마지막 식을 Evidence Lower Bound, ELBO라고 합니다. 이 ELBO를 Variational free energy로 정의합니다.
-<div align="center"> <img class="aligncenter size-full wp-image-681" src="../wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.37.36.png" alt="" width="580" height="170" /> </div>
-
-그런데 아까 있던 $KL(Q||P)$ 는 다음과 같이 표현할 수 있습니다.
-
+<div align="center"> <img src="/wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.37.36.png" alt="" width="580" height="170" /> </div>
+<div>
+그리고 아까 있던 $KL(Q||P)$ 는 다음과 같이 표현할 수 있습니다.</div>
+<div>
 신기하게 Variational free energy와 posterior의 로그 합이 $KL(Q||P)$ 입니다. 그래서 밑 그림과 같은 표현이 가능합니다.
-
-<div align="center"><img class="aligncenter size-full wp-image-682" src="../wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.38.53.png" alt="" width="784" height="211" /></div>
-
+</div>
+<div align="center"><img src="/wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.38.53.png" alt="" width="784" height="211" /></div>
+<div>
 그래서 posterior도 못구하고 $KL(Q||P)$ 도 못구하니 아래 Variational free energy를 최대로 만들어 Variational distribution 을 posterior에 근사시키는 것이 variational inference 입니다.
-
-<div align="center"><img class="wp-image-683 size-full" src="../wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.40.06.png" alt="" width="588" height="344" /></div>
+</div>
+<div align="center"><img class="wp-image-683 size-full" src="/wp-content/uploads/2018/02/스크린샷-2018-02-08-오후-5.40.06.png" alt="" width="588" height="344" /></div>
 
 사실 이 모든 식을 유도해 나가는 과정은 몇 개 안된다고 하시지만 굉장히 복잡해 보입니다. Variational Inference에 관한 강의나 책을 보아도 난무하는 수식에 정신을 못차리겠네요.
 <h4>참조</h4>
