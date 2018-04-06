@@ -25,3 +25,8 @@ Word2vec의 목표는 hidden layer의 weight를 학습하는 것입니다. 이 w
 ## So
 이렇게 학습된 word vector는 비슷한 단어에 대해선 비슷한 결과는 냅니다. 그러면 비슷한 row vector를 갖고 있는 것들은 비슷한 단어라는 의미가 됩니다. 그럼 이 row vector들의 dissimilarity, 거리를 cosine 거리로 구하면? 그럼 비슷한 단어들끼리 묶이게 되죠. 그리고 그것들을 공간에 뿌려놓으면 ant, ants 와 같은 것들이 비슷한 곳에 모여있는 것을 보게 됩니다. 결과적으로 아래 그림 같은 단어 벡터들이 만들어 지는 것이죠.
 <div align='center'> <img src="/image/word2vec/4.jpg"/> </div>
+이후 word2vec은 발전되었고 negative sampling 같은 더 좋은 성능을 내는 기법이 개발됩니다. 다음 포스팅에는 어떻게 word2vec을 업그레이드 하였는지 보겠습니다.
+
+#### 참고
+<a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/">Word2Vec Tutorial - The Skip-Gram Model</a>
+<a href="https://arxiv.org/pdf/1301.3781.pdf">Efficient Estimation of Word Representations in Vector Space</a>
