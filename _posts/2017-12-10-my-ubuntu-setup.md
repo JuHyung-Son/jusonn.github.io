@@ -13,9 +13,10 @@ categories:
   - Dev
 ---
 
-처음에는 잘 몰랐는데 개발환경 세팅하는게 상당히 골치아프다.. 원래 맥에서는 그냥 주피터 하나만 설치하면 끝이었는데 말이다.
+처음에는 잘 몰랐는데 개발환경 세팅하는게 상당히 골치아프네요.. 원래 맥에서는 그냥 주피터 하나만 설치하면 끝이었는데 말입니다.
 
-내가 우분투에서 어떤 개발환경을 맞추는 지 저장용으로 작성한다.
+제가 우분투에서 어떤 개발환경을 맞추는 지 저장용으로 작성합니다.
+
 <ol>
  	<li>vim</li>
 </ol>
@@ -27,13 +28,13 @@ sudo apt-get install vim
 
 vim 환경설정
 
-다음과 같이 접속한다.
+다음과 같이 파일을 엽니다.
 
 ```
 vi ~/.vimrc
 ```
 
-다음을 작성하고 저장한 후 나간다 :wq
+다음을 작성하고 저장한 후 나갑니다 :wq
 ```
 <pre class="">" 자동 문법 강조
 syntax on
@@ -133,5 +134,3 @@ sudo apt<span class="token se_code_operator">-</span><span class="token se_code_
 바탕화면 --&gt; 벡터아트
 
 <a href="http://wallpaperswide.com/vector_art-desktop-wallpapers">벡터아트 이미지 사이트 보기</a>
-<div class="grammarly-disable-indicator"></div>
-<div class="grammarly-disable-indicator"></div>
