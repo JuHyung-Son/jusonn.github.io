@@ -4,7 +4,6 @@ title: 온라인 소스로 딥러닝 공부하기
 date: 2017-11-10T17:15:35+00:00
 author: JuHyung Son
 layout: post
-permalink: '/%ec%98%a8%eb%9d%bc%ec%9d%b8-%ec%86%8c%ec%8a%a4%eb%a1%9c-%eb%94%a5%eb%9f%ac%eb%8b%9d-%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0/'
 dsq_thread_id:
   - "6274562767"
 image: /wp-content/uploads/2017/11/cropped-IMG_5212-1-250x250.jpg

@@ -4,7 +4,6 @@ title: 개미 집단 알고리즘,최적화, ACO
 date: 2017-11-12T16:21:17+00:00
 author: JuHyung Son
 layout: post
-permalink: '/%ea%b0%9c%eb%af%b8-%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98-ant-colony-optimization-algorithms/'
 dsq_thread_id:
   - "6278647869"
 image: /wp-content/uploads/2017/11/cropped-IMG_5429-1-250x250.jpg

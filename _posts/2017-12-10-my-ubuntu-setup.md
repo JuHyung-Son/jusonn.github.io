@@ -4,7 +4,6 @@ title: 나의 우분투 개발환경
 date: 2017-12-10T21:01:04+00:00
 author: JuHyung Son
 layout: post
-permalink: '/%eb%82%98%ec%9d%98-%ec%9a%b0%eb%b6%84%ed%88%ac-%ea%b0%9c%eb%b0%9c%ed%99%98%ea%b2%bd/'
 dsq_thread_id:
   - "6340699239"
 tags:

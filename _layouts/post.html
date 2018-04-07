@@ -44,6 +44,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
                                 <time class="date-updated updated" title="{{ page.last_updated | date_to_xmlschema }}" datetime="{{ page.last_updated | date_to_xmlschema }}">{{ page.last_updated }}</time>)
                             {% endif %}
                         </p>
+                        
                         <ul class="list-category list-linear">
                             <li class="list-head">{{ site.data.i18n[site.lang].categories }}: </li>
                             {% assign categories_list = page.categories | sort %} {% include helpers/categories_list %}

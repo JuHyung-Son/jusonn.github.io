@@ -4,7 +4,6 @@ title: 쉽게 본 Measure Theory ~ Probability
 date: 2018-02-24T02:53:17+00:00
 author: JuHyung Son
 layout: post
-permalink: '/%ec%89%bd%ea%b2%8c-%eb%b3%b8-measure-theory/'
 tags:
    - Measure theory
    - probability

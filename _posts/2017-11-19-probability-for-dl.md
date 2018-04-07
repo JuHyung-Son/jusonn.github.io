@@ -3,7 +3,6 @@ title: 딥러닝을 위한 수학, 확률과 통계
 date: 2017-11-19T20:29:04+00:00
 author: JuHyung Son
 layout: post
-permalink: '/%eb%94%a5%eb%9f%ac%eb%8b%9d%ec%9d%84-%ec%9c%84%ed%95%9c-%ec%88%98%ed%95%99-%ed%99%95%eb%a5%a0%ec%9d%98-%ea%b8%b0%eb%b3%b8/'
 dsq_thread_id:
   - "6294691568"
 dsq_needs_sync:
