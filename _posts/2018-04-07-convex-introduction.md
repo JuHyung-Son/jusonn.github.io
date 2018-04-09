@@ -1,3 +1,15 @@
+---
+title: Convex function, Convex Optimization review
+date: 2018-04-07
+author: JuHyung Son
+layout: post
+tags:
+   - 최적화
+   - convex
+categories:
+   - MATH
+---
+
 # Convex Opt
 최적화 분야에는 크게 Convex와 Non-Convex 최적화가 있습니다. 최적화하려는 대상에 따라 분야가 달라지기보다는 어떤 방법으로 최적화를 할 것이냐에 따라 분야가 나뉩니다. 왜냐면 Convex 최적화에서는 non-convex한 문제도 Convex한 형태로 변형하여 풀기 때문이죠. 하지만 Convex한 문제를 Non-convex한 문제로 풀 거 같지는 않네요. 왜냐면 일반적으로 Non-Convex한 문제는 최적화가 어렵고 거의 불가능합니다. 딥러닝에서도 global minimum 대신 적당히 좋은 local minimum을 사용하는 것 처럼요. 반면 Convex한 문제는 최적화가 비교적 훨씬 쉽습니다. 고등학생 때 이차함수를 미분하며 global minimum을 찾았던 거 처럼 말이죠. 이러한 것들은 대체적으로 쉬우니 Convex opt에서는 non-convex한 문제를 convex한 문제로 변환하는 것에 초점을 둡니다.
 
@@ -19,7 +31,7 @@
 >$C \subset \mathbb{R}^{n}$ is a convex set if $x,y \in C \rightarrow tx+(1-t)y \in C$ for all $0 \leq t \leq 1$
 
 어떤 집합 C의 원소들이 위와 같은 연산을 했을 때 다시 집합 C에 속한다면 convex set입니다. 또 $tx+(1-t)y$와 같은 점을 점 x,y,의 convex combination 이라고 합니다.
-사진 1
+<div align='center'> <img src="/image/convex/1.jpg"/> </div>
 #### Ex
 <li>
    All of $\mathbb{R}^n$ </br>
@@ -37,7 +49,7 @@ Convex Optimization의 중심에 있는 convex function입니다.
 >$f : \mathbb{R}^{n} \rightarrow \mathbb{R}$ is a **convex function** if $dom(f) \subset \mathbb{R}^{n}$ is convex, and $f(tx + (1-t)y) \leq t f(x) + (1-t)f(y)$ for all $0 \leq t \leq 1$ and all $x,y \in dom(f)$
 
 Convex function은 정의역을 실수로 보내는 집합입니다. 그리고 정의역이 convex 집합이고 위의 조건이 만족한다면 f를 최적화 함수라고 합니다. 정의역이 convex인 조건은 치역이 존재하기 위함을 확인하는 것이라 그다지 신경쓰지 않아도 된다네요. 그리고 $f(tx + (1-t)y) \leq t f(x) + (1-t)f(y)$은 함수 f가 (x,y) 구간에서 f(x), f(y)를 이은 직선 보다 작다는 것이니 아래로 볼록하다는 것을 뜻합니다.
-그림
+<div align='center'> <img src="/image/convex/2.jpg"/> </div>
 
 #### First Order Condition for Convexity
 
