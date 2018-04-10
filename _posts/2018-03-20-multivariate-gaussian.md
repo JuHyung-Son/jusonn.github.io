@@ -12,7 +12,7 @@ categories:
   - MATH
 ---
 <h1>Multivariate Gaussian</h1>
-<div>경험상, 실제로는 univariate gaussian을 다루기보단 multivariate gaussian을 다뤄야 할 상황이 더 많았고 거의 대부분이 그럴 것입니다. 하나의 변수만으로 무얼한다는 건 튜토리얼에서만 있는 일이고 그것이 있다해도 아주 간단한 작업이라고 생각합니다. 반면 대부분의 경우를 이루는 multivariate gaussian은 식도 훨씬 복잡해지고 차원이 높아지면 눈에 보이지도 않습니다. 저는 복잡한 행렬들이 나열되면 아무 생각이 들지 않죠.. </div> 하지만 Multivariate Gaussian은 중요한 개념임에는 틀림이 없습니다.
+<div>경험상, 실제로는 univariate gaussian을 다루기보단 multivariate gaussian을 다뤄야 할 상황이 더 많았고 거의 대부분이 그럴 것입니다. 하나의 변수만으로 무얼한다는 건 튜토리얼에서만 있는 일이고 그것이 있다해도 아주 간단한 작업이라고 생각합니다. 반면 대부분의 경우를 이루는 multivariate gaussian은 식도 훨씬 복잡해지고 차원이 높아지면 눈에 보이지도 않습니다. 저는 복잡한 행렬들이 나열되면 아무 생각이 들지 않고 멍때립니다. </div> 하지만 Multivariate Gaussian은 중요한 개념임에는 틀림이 없습니다.
 <h2>Univariate Gaussian</h2>
 <div>먼저, 변수가 하나인 그냥 정규분포입니다. 확률과 통계 책에서 가장 중요한 부분 중 하나라고 생각합니다. 정규분포가 가장 많이 쓰이는 이유는 Central limit theorem(CLT), 중심 극한 정리 때문인데요. CLT 는 간단히 말해 어떤 분포가 충분한 조건을 만족하면 (보통 데이터가 충분히 많다는) 그 분포는 어떤 분포라도 정규분포에 근사할수 있다는 정리입니다. 이 정리를 보면 왜 정규분포가 중요한지 딱 알 수 있죠. 그리고 정규분포는 평균과 분산만 알면 분포에 관한 모든 정보를 알 수 있는 좋은 분포입니다.</div>
 <div><a href="http://onlinestatbook.com/stat_sim/sampling_dist/">CLT를 시뮬레이션하는 곳은 이곳</a></div>
