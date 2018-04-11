@@ -79,7 +79,7 @@ $$\forall x , ~ P(x=x)=\sum _ {y} P(x=x,y=y)$$ 연속형 변수인 경우 $$p(x)
 
 <h2>Expectation, Variance, Covariance</h2>
 <div align="center">
-<img class="aligncenter wp-image-408 size-full" src="../wp-content/uploads/2017/11/1wdhH.png" alt="" width="500" height="228" /> </div>
+<img class="aligncenter wp-image-408 size-full" src="/wp-content/uploads/2017/11/1wdhH.png" alt="" width="500" height="228" /> </div>
 
 확률 분포 $P(x)$를 가진 함수 f의 기댓값(Expectation)은 평균을 뜻합니다. 이산형 변수에서는 다음과 같이 계산됩니다. $$\mathbb{E} _ {x \sim P} [f(x)] = \sum _ {x} P(x) f(x)$$
 연속형 변수에서의 기댓값은 다음과 같습니다. $$\mathbb{E} _ {x \sim p} [f(x)] = \int p(x) f(x) dx$$
@@ -115,7 +115,7 @@ $\mathbb{E} _ {x} [x]=p$
 <li>$Var(x) = p(1-p)$
 </li>
 <div align="center">
-<img class="aligncenter wp-image-420 size-full" src="../wp-content/uploads/2017/11/스크린샷-2017-11-21-오후-11.38.31.png" alt="" width="542" height="317" /> </div>
+<img class="aligncenter wp-image-420 size-full" src="/wp-content/uploads/2017/11/스크린샷-2017-11-21-오후-11.38.31.png" alt="" width="542" height="317" /> </div>
 
 <h3>Multinoulli distribution</h3>
 
@@ -125,19 +125,19 @@ Multinoulli, categorical 분포라고도 합니다. 이름에 맞게 k개의 변
 
 <h3>Gaussian distribution</h3>
 
-<div align="center"><img class="aligncenter wp-image-421 size-full" src="../wp-content/uploads/2017/11/스크린샷-2017-11-22-오전-12.13.04.png" alt="" width="709" height="346" /></div>
+<div align="center"><img class="aligncenter wp-image-421 size-full" src="/wp-content/uploads/2017/11/스크린샷-2017-11-22-오전-12.13.04.png" alt="" width="709" height="346" /></div>
 
 분포 중 가장 유명하고 많이 쓰이는 분포는 gaussian으로 normal distribution이라고도 불린다.
 $$N(x; \mu , \sigma ^ {2})=\sqrt{ \frac {1} {2 \pi \sigma ^{2}} } exp(- \frac {1} {2 \sigma ^ {2}} (x- \mu ) ^ {2})$$
 정규분포는 $\mu , \sigma$로 결정됩니다. $\mu$는 평균 값으로 중앙의 볼록한 곳, 평균의 위치를 결정하고 $\sigma $, 분산은 분포의 퍼짐 정도를 결정합니다. Normal distribution은 거의 모든 곳에서 쓰입니다. 만일 어떤 변수가 어떤 분포를 가지는 지 모른다면, 보통 normal dist. 를 사용하는 게 가장 좋죠. 왜냐면 거의 모든 변수들은 normal dist에 가깝습니다. The central limit theorem(중심 극한 정리)는 독립의 변수들의 함은 normal dist에 가까워진다는 걸 보여주기도 합니다. 이 말은 많은 복잡한 모델들은 데이터가 많아지면 어떤 것이든 normal dist 로 봐도 된다는 얘기입니다.
 정규 분포 역시 다변수로 확장이 가능하고 multivariate normal distribution이라고 부릅니다. $$N(x; \mu , \Sigma ) = \sqrt{ \frac {1} {(2 \pi ) ^ {2} det( \Sigma )}} exp ( - \frac{1}{2} (x- \mu )^ {T} \Sigma ^ {-1} (x- \mu))$$ 여기서 $\Sigma$은 positive definite symmetric matrix이고 Covariance matrix와 동일합니다. $\mu$는 역시 평균을 뜻합니다.
 
-<div align="center"><img class="aligncenter wp-image-422 size-full" src="../wp-content/uploads/2017/11/스크린샷-2017-11-22-오전-12.25.04.png" alt="" width="827" height="756" /></div>
+<div align="center"><img class="aligncenter wp-image-422 size-full" src="/wp-content/uploads/2017/11/스크린샷-2017-11-22-오전-12.25.04.png" alt="" width="827" height="756" /></div>
 
 <a href="http://students.brown.edu/seeing-theory/distributions/index.html#second">중심 극한 정리에 관한 좋은 자료는 여기</a>
 
 <h3>Exponential and Laplace distribution</h3>
-<div align="center"> <img class="aligncenter wp-image-423 size-full" src="../wp-content/uploads/2017/11/스크린샷-2017-11-22-오전-12.44.58.png" alt="" width="544" height="544" /> </div>
+<div align="center"> <img class="aligncenter wp-image-423 size-full" src="/wp-content/uploads/2017/11/스크린샷-2017-11-22-오전-12.44.58.png" alt="" width="544" height="544" /> </div>
 딥러닝을 공부하다 보면 x=0에서 뾰족한 모양을 가지는 분포가 필요할 때가 많습니다. 정규분포도 이 상황에 맞지만 좀 더 뾰족한 분포는 exponential dist입니다. $$p(x; \lambda) = \lambda \mathbb{1} _ {x \geq 0} exp( - \lambda x)$$ 여기서 $\mathbb{1} _ {x \geq 0}$은 indicator function이라고 부르고 밑의 조건이 충족되면 1, 그렇지 않으면 0을 뜻합니다. exponential dist 말고도 laplace dist도 이 상황에 사용 가능합니다. $$Laplace(x; \mu \gamma ) = \frac {1} {2 \gamma} exp (- \frac {|x- \mu |} { \gamma })$$
 
 <h2>Estimators, Bias, Variance</h2>

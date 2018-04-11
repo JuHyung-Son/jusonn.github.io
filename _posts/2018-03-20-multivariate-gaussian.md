@@ -34,12 +34,21 @@ $$ X \sim N( \mu , \sigma ^ {2}  ) , \mu \in \mathbb{R} , \sigma ^ {2} < 0 $$
 <div>여기서 C는 Covariance이고 covariance는 positive semi definite라는 특징을 가지고 있습니다. 보통 통계 책에서 나오는 정의입니다.</div>
 <div></div>
 <div>Multivariate gaussian 은 2변수 일 때, 그 특징을 그래프로 쉽게 그려볼 수 있습니다. 물론 3차원도 가능하지만 편의를 위해 2차원만 봅니다. 그림이 매우 허접하지만 아래가 2 variate gaussian에서 흔히 나타나는 형태입니다.</div>
-<div align="center"><img class="aligncenter size-full wp-image-814" src="../wp-content/uploads/2018/03/81470A14-1506-45C5-B2C1-AEAB915904F3.png" alt="" width="1602" height="355" /></div>
+<div align="center"><img class="aligncenter size-full wp-image-814" src="/wp-content/uploads/2018/03/81470A14-1506-45C5-B2C1-AEAB915904F3.png" alt="" width="1602" height="355" /></div>
 <div></div>
 <div>위 데이터를 x축 혹은 y축에 투영해 보면 둘 모두 정규분포를 따릅니다. 그림을 못그려서 그렇게 안 보일 수 있습니다. 이제 두가지 유용한 정리를 봅시다.</div>
+
 <h3>Property</h3>
-<div>1. $X _ {1} , … , X _ {n}$ are independent with $X _ {i} \sim N( \mu _ {i} , \sigma _ {i} ^ {2} )$ iff $ X = ( X _ {1} , … , X _ {n} ) \sim N ( \mu , C )$ where $ \mu = ( \mu _ {1} , … , \mu _ {n} ) , C = \begin{pmatrix} \sigma _ {1} ^ {2} &amp; ... &amp;0 \\ 0 &amp; \sigma _ {k} ^ {2}  &amp;0 \\ 0 &amp; ... &amp; \sigma _ {n} ^ {2} \end{pmatrix} $</div>
-<div></div>
+
+<div>
+
+1. $X _ {1} , … , X _ {n}$ are independent with $X _ {i} \sim N( \mu _ {i} , \sigma _ {i} ^ {2} )$ iff $ X = ( X _ {1} , … , X _ {n} ) \sim N ( \mu , C )$ where $ \mu = ( \mu _ {1} , … , \mu _ {n} ) , \begin{matrix}
+C = \begin{pmatrix} \sigma _ {1} ^ {2} & ... & 0 \\ 0 & \sigma _ {k} ^ {2}  & 0 \\ 0 &  ... & \sigma _ {n} ^ {2} \end{pmatrix}
+ &  &
+\end{matrix} $
+
+</div>
+
 <div></div>
 <div>2. If $X \in \mathbb{R} ^ {n} $ is gaussian then, $ X _ {i} , X _ {j} $ are independent iff $Cov(X _ {i} , X _ {j} ) = 0$</div>
 <div>둘다 independent에 관한 정리입니다. 통계학에서 이 independent는 아주 중요하며 correlation 이란 방법으로 이것을 분석합니다. 중요한 것은 Independent와 Uncorrelation은 다른 것이라는 것입니다. 의미가 상당히 비슷해 보이지만 정의 자체가 다릅니다. </div>
@@ -52,12 +61,12 @@ $$ X \sim N( \mu , \sigma ^ {2}  ) , \mu \in \mathbb{R} , \sigma ^ {2} < 0 $$
 <h2>Plot Multivariate Gaussian</h2>
 <div>2개의 변수를 가진 정규분포가 있다고 하고 $\mu = 0$ 일 때, Covariance에 따른 정규분포의 모양을 보면 이런 모양입니다.</div>
 <div>Multivariate gaussian 은 생각보다 많은걸 할 수 있습니다. Andrew Ng의 수업에서는 Anormaly detection도 소개하고 등등 생각이 안나는 몇가지를 더 하기도 합니다.</div>
-<div align="center"><img class="aligncenter size-full wp-image-815" src="../wp-content/uploads/2018/03/스크린샷-2018-03-19-오후-3.28.20.png" alt="" width="1320" height="1400" /></div>
+<div align="center"><img class="aligncenter size-full wp-image-815" src="/wp-content/uploads/2018/03/스크린샷-2018-03-19-오후-3.28.20.png" alt="" width="1320" height="1400" /></div>
 <div></div>
 <h2>Marginal distribution</h2>
 <div>반대로 어떤 multivariate gaussian인 분포가 주어졌을 때, 그것으로 부터 marginal distribution을 구할 수 있습니다.</div>
 <div>즉, $X = (X _ {1} , X _ {2} ) ^ {T} \in \mathbb{R} ^ {2}$ 라면 $X _ {1} , X _ {2}$는 gaussian 있습니다. 물론 2개의 변수 뿐만 아니라 n개의 변수가 있는 general한 상황에서도 가능합니다.</div>
-<div><img class="aligncenter wp-image-817" src="../wp-content/uploads/2018/03/PNG-image.png" alt="" width="653" height="448" /></div>
+<div><img class="aligncenter wp-image-817" src="/wp-content/uploads/2018/03/PNG-image.png" alt="" width="653" height="448" /></div>
 <div>이것은 증명이 매우 쉬우니 한번 봅시다.</div>
 <div></div>
 <h4>Pf)</h4>
@@ -79,8 +88,8 @@ $$ X \sim N( \mu , \sigma ^ {2}  ) , \mu \in \mathbb{R} , \sigma ^ {2} < 0 $$
 <div></div>
 <div align="center">
 
-<img class="wp-image-816" src="../wp-content/uploads/2018/03/PNG-image-2-1024x823.png" alt="" width="464" height="373" />
+<img class="wp-image-816" src="/wp-content/uploads/2018/03/PNG-image-2-1024x823.png" alt="" width="464" height="373" />
 
-<img class="wp-image-813 alignnone" src="../wp-content/uploads/2018/03/9SIxb.png" alt="" width="594" height="242" />
+<img class="wp-image-813 alignnone" src="/wp-content/uploads/2018/03/9SIxb.png" alt="" width="594" height="242" />
 </div>
 <div>Multivariate Gaussian이 실제로는 어떻게 쓰이는지는 정확히는 모르겠지만, 위의 특징들은 Multivariate Gaussian가 굉장히 편하게 쓰일 것 같다는 생각이 들게 합니다. 모든 것이 가우시안이고 데이터 자체가 Multivariate gaussian이라면 별다른 가정 없이 데이터를 다룰 수 있을 거 같습니다.</div>

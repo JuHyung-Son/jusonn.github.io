@@ -18,7 +18,7 @@ categories:
 엔트로피는 정의에 따르면 사실 확률변수입니다. 정확히는 분포 p에서의 확률 변수 X이고 $\mathbb{H}(X) , \mathbb{H}(p)$로 표기합니다. 그리고 이산 변수에서의 엔트로피는 다음과 같이 정의됩니다.
 $$\mathbb{H}(X) = - \sum ^ {K} _ {k=1} p(X=k) log _ {2} p(X=k)$$
 
-<div align="center"><img class="aligncenter size-full wp-image-850" src="http://dllab.xyz/wp-content/uploads/2018/03/스크린샷-2018-03-24-오후-3.38.47.png" alt="" width="824" height="522" /></div>
+<div align="center"><img class="aligncenter size-full wp-image-850" src="/wp-content/uploads/2018/03/스크린샷-2018-03-24-오후-3.38.47.png" alt="" width="824" height="522" /></div>
 베르누이 분포에서 엔트로피는 다음과 같은 모습을 보입니다. 확률이 0과 1에서 엔트로피가 0인데 베르누이에서 p가 0과 1인 경우 한가지 값만 나오기 때문에 무질서함이 전혀 없을 것입니다. p가 0.5일 경우는 동전 던지기와 같은 경우로 이때는 앞면, 뒷면이 반반씩 나오니 결국 무질서함이 최대가 될 것입니다.
 
 그런데 단지 이 엔트로피는 한가지 분포 p에 대한 함수입니다. 예측값과 라벨은 분명 서로 다른 분포를 띄고 있으니 엔트로피는 모델로 예측값을 만드는 기계학습, 딥러닝의 성능을 측정하는 데는 적학하지 않습니다. 두 가지 분포에 대한 함수가 바로 cross entropy 입니다. Cross entropy 를 사용하면서 라벨이 P 분포를 따를 때, Q 분포를 따르는 예측값을 무질서도를 정의할 수 있게 됩니다. Cross entropy 의 정의는 다음과 같습니다.

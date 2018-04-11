@@ -12,7 +12,7 @@ tag:
   - review
 ---
 <div align="center">
-<img class="aligncenter wp-image-284 size-full" src="../wp-content/uploads/2017/11/11.jpg" alt="" width="727" height="783" /></div>
+<img class="aligncenter wp-image-284 size-full" src="/wp-content/uploads/2017/11/11.jpg" alt="" width="727" height="783" /></div>
 
 약 5개월 동안 천천히 읽으며 공부했던 책으로 국내외로 평이 좋은 책입니다. 인기 때문인지 인터넷에서는 찾기가 매우 힘들었고 저는 결국 책을 아마존에서 구매했네요. 이 책의 반은 기본적인 기계학습 개념에 관한 내용입니다. 기계학습의 모든 알고리즘을 소개하기 보다는 딥러닝에 기초가 되는 부분만을 추려놓았고 sklearn 으로 직접 코드를 돌려봅니다. 다른 책과 비교해 좋은 점은 알고리즘을 간단히 소개하고 돌려보기 보단 기계학습이라는 분야 자체게 좀 더 깊숙히 들어간다는 거죠. 다음은 텐서플로를 이용한 딥러닝이 반을 이룹니다. 텐서플로로 짜는 선형회귀부터 Autoender 까지 꽤 넒은 부분을 다루는데 체계적인 텐서플로 코드가 인상 깊습니다. 특히 딥러닝은 공부했지만 코딩이 막막한 분에겐 정말 좋습니다. 개인적으로는 딥러닝을 배우기보단 텐서플로 코딩을 배우는데 좋았네요.
 <h4>1. The machine learning Landscape</h4>

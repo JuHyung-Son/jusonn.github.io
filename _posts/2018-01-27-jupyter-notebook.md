@@ -7,7 +7,7 @@ layout: post
 categories:
   - Dev
 ---
-<div align='center'><img class="aligncenter size-full wp-image-620" src="../wp-content/uploads/2018/01/스크린샷-2018-01-27-오후-4.36.55.png" alt="" width="890" height="707" /></div>
+<div align='center'><img class="aligncenter size-full wp-image-620" src="/wp-content/uploads/2018/01/스크린샷-2018-01-27-오후-4.36.55.png" alt="" width="890" height="707" /></div>
 
 Juno 라는 주피터-아이패드 연동앱이 출시되었습니다.
 

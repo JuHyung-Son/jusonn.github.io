@@ -15,7 +15,7 @@ Simulated annealing은 최적해를 찾는 확률 모델입니다. 가장 단순
 
 온도가 높을 때는 조그만 확률에도 변화가 심하여 local minimum을 가뿐히 뛰어넘습니다. 온도가 낮아지면서 global minimum에 근접한 곳에 자리잡게 되고 global minimum에 정착합니다. 밑 그림은 global maximum을 찾는 과정입니다. simulated annealing의 코드를 봅시다.
 
-<div align='center'> <img src="../wp-content/uploads/2017/11/SA_animation.gif" alt="" width="500" height="161" /> </div>
+<div align='center'> <img src="/wp-content/uploads/2017/11/SA_animation.gif" alt="" width="500" height="161" /> </div>
 
 <h2>Code</h2>
 
@@ -115,4 +115,4 @@ return np.power(alpha, time) * temperature
 미국 지도를 가지고 풀어본 TSP의 예.
 
 <div align='center'>
-<img class="aligncenter wp-image-471 size-full" src="../wp-content/uploads/2017/11/스크린샷-2017-11-29-오후-2.00.53-1.png" alt="" width="1018" height="563" /> </div>
+<img class="aligncenter wp-image-471 size-full" src="/wp-content/uploads/2017/11/스크린샷-2017-11-29-오후-2.00.53-1.png" alt="" width="1018" height="563" /> </div>

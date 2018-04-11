@@ -32,7 +32,7 @@ categories:
 먼저 지금 예시로 들 chain-rule을 이용한 back-propagation 과정을 이해하려면 다음의 미분을 알아야합니다. $f(x,y) = x+y \rightarrow \frac{df}{dx} = 1,~\frac{df}{dy} = 1$ $f(x,y) = xy \rightarrow \frac{df}{dx}=y, ~ \frac{df}{dy}=x$ 각각의 편미분 값을 기억합시다.
 
 <div align='center'>
-<img src="../wp-content/uploads/2017/11/backprop.png" alt="" width="423" height="215" />
+<img src="/wp-content/uploads/2017/11/backprop.png" alt="" width="423" height="215" />
 </div>
 간단한 예로 다음의 함수를 봅시다.</div>
 <ul>

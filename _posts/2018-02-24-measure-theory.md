@@ -15,7 +15,7 @@ Youtube의 mathematical monk 채널을 구독 중입니다.
 <h1>Measure Theory</h1>
 <h2>Banach- Tarski Paradox</h2>
 <div align="center">
-<img class="aligncenter size-full wp-image-730" src="../wp-content/uploads/2018/02/445px-Banach-Tarski_Paradox.png" alt="" width="445" height="100" /> </div>
+<img class="aligncenter size-full wp-image-730" src="/wp-content/uploads/2018/02/445px-Banach-Tarski_Paradox.png" alt="" width="445" height="100" /> </div>
 
 먼저 Measure가 무엇인지 직관적인 이해를 돕기 위해 바나흐-탈스키의 역설을 봅니다. 이 역설은 3차원 상의 공을 유한 개의 조각으로 자른 다음 늘리거나 변형하지 않고 재조합만 하면 원래 공과 같은 부피를 갖는 공 두 개를 만들 수 있다는 정리입니다. 이 말도 안되는 상황을 증명하기 위해 바나흐의 탈스키는 체르멜로-프렝켈 집합론에서 선택 공리를 추가하여 증명했다고 합니다. (ZFC set 이라고 한다.) 물론 이건 역설이니 틀렸음을 증명할 수 있어야 하는데 수학자들이 이것을 증명하는데 꽤 애를 먹었다고 합니다. 이것을 틀렸음을 증명하는데는 두가지 방법이 있습니다. 먼저 선택 공리(axiom of choice)라는 것을 제외하거나 혹은 공 조각들이 non-measurable set이라는 것을 증명하면 됩니다. non-measurable 하다는 것은 부피나 크기 같은 어떤 값을 측정할 수 없다는 얘기입니다. 조각들이 non-measurable이니 Borel set이 아니게 되고 역설인 것이 증명됩니다. 실제로 우리가 보는 보는 집합, 함수는 measurable 해서 non-measurable 하다는 것이 잘 와닿지 않습니다. 예로 어떤 것이 있는지도 잘 생각이 나질 않고요. 여전히 measure에 대해서는 잘 모르겠습니다. 어쨋든 이 부분에 대해 더 궁금하면 아래의 논문을 보면 됩니다.
 
