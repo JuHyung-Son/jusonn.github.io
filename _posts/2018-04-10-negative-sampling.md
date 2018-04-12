@@ -1,11 +1,12 @@
 ---
-title: 단어 임베딩 Word2Vec, skip gram - 1
+title: 단어 임베딩 Word2Vec, Negative sampling, Subsampling
 date: 2018-04-05
 author: JuHyung Son
 layout: post
 tags:
   - NLP
   - Word embedding
+  - Negative sampling
 categories:
   - Deep_Learning
 ---
@@ -26,6 +27,6 @@ Word2vec은 인공신경망을 이용한 기존의 워드 임베딜 기법보다
 
 ## Subsampling
 Negative sampling은 계산량을 획기적으로 줄였다면, Subsampling은 텍스트 자체가 가진 문제를 다룬 방법입니다. 텍스트를 보면 영어에서는 the, a 와 같은 단어들이 자주 등장하는데 이것들로 얻을 수 있는 정보는 다른 단어들보다 많다고 할 수 없죠. 한국어에서는 잘 생각나지 않는데 ㅋㅋㅋ ㅠㅜ 와 같은 것들이 있겠네요. 이렇게 매우 자주 등장하지만 별 쓸모는 없는 단어가 문제인 것입니다. 이런 문제를 다루는 것이 Subsampling 입니다. 학습 데이터의 각 단어는 어떤 확률에 의해 제거 당할 운명에 놓입니다. 여기서도 확률은 단어의 빈도수에 따라 결정이 되겠지요. 하지만 여기서는 많이 등장하는 하는 단어일수록 제거될 확률이 높아집니다. 논문에서 제시한 단어를 보존할 확률은 $$P(w_i) (\sqrt{ \frac{z(w_i)}{0.001}}+1) \frac{0.001}{z(w_i)}$$ 여기서도 역시 확률은 실험을 통해 가장 잘 작동한다고 나타난 값입니다.
-<div align="center"><img src="image/word2vec/7.jpg" /> </div>
+<div align="center"><img src="/image/word2vec/7.jpg" /> </div>
 
 Negative sampling과 Subsampling 에서 단어를 선택할, 보존할 확률이 성능에 큰 영향을 끼칩니다. 케라스와 같은 프레임워크에는 논문에서 실험을 통해 알려진 확률 값들이 쓰이겠지만, 개인적으로는 이건 어디까지나 영어 텍스트에 적용된 실험으로 한국어에는 다른 확률이 쓰여야한다고 생각합니다. 이미 한글 NLP를 하시는 분들은 그렇게 하고 있지 않을까 싶네요.
