@@ -1,4 +1,4 @@
-- - - -
+---
 title: 텐서플로우를 이용한 Word Embedding
 date: 2018-04-13
 author: JuHyung Son
@@ -9,7 +9,7 @@ tags:
 	- tensorflow
 categories:
 	- Deep_Learning
-- - - -
+---
 
 # Word Embedding
 
