@@ -26,8 +26,10 @@ $$\mathbb{H}(X) = - \sum ^ {K} _ {k=1} p(X=k) log _ {2} p(X=k)$$
 $$ \mathbb{H}(p,q) = - \sum _ {k} p _ {k} log q _ {k} $$
 
 만일 우리의 예측값이 P분포를 따르고 라벨도 P분포를 따른다면 $\mathbb{H} (p,p)$이고 이것은 $\mathbb{H}(p)$와 같습니다.
+
 <h2>KL divergence</h2>
-개인적으로는 KL divergence, Kullback-Leibler divergence는 요즘 특히 베이지언, VAE와 GAN을 보다보니 익숙해졌습니다. 위 세가지 모델에서 KL은 논문, 모델을 이해하는데 매우 중요합니다. KL divergence는 두 확률 분포의 dissimilarity를 측정합니다. 두 분포간의 거리를 측정한다고 봐도 좋습니다.
+
+개인적으로는 KL divergence, Kullback-Leibler divergence는 요즘 특히 베이지언, VAE와 GAN을 보다보니 익숙해졌습니다. 위 세가지 모델에서 KL은 논문, 모델을 이해하는데 매우 중요합니다. KL divergence는 두 확률 분포의 dissimilarity를 측정합니다. 두 분포간의 거리를 측정한다고 보면 직관적으로 이해가 쉽지만 거리가 아니라는 것을 기억해야 합니다. 일반적으로 거리라면 A 에서 B의 거리와 B 에서 A의 거리가 같지만 KL divergence의 정의를 보면 p와 q의 순서가 바뀌면 값도 바뀌죠. 그래서 KL == 거리 는 틀린 말입니다.
 
 $$\mathbb{KL} (p||q) = \sum ^{K} _ {k=1} p_{k} log \frac{p _ {k}}{q _ {k}}$$
 위의 로그를 쪼개어 나타내면 다음과 같습니다.
