@@ -4,11 +4,11 @@ date: 2018-04-13
 author: JuHyung Son
 layout: post
 tags:
-	- NLP
-	- Word embedding
-	- tensorflow
+  - NLP
+  - Word embedding
+  - tensorflow
 categories:
-	- Deep_Learning
+  - Deep_Learning
 ---
 
 # Word Embedding
