@@ -173,3 +173,10 @@ with tf.Session(graph=train_graph) as sess:
 <div align="center"> <img src="/image/embedding/5.jpg" /> </div>
 
 이렇게 임베딩을 시켜보았습니다. 500 에폭을 돌렸는데 역시 거의 전혀 학습이 되질 않습니다. 조사를 처리하지 않았고 일단 데이터의 양이 부족합니다. 일단 konlpy를 설치하고 한글 텍스트 전처리를 어느정도 해본 후 다시 해봐야겠네요.
+<hr>
+해봤습니다. 일단 konlpy에 kkma 클래스를 사용해서 전처리를 해보았습니다. konlpy에 여러 클래스가 있는데 표를 보니 Mecab이 더 나은 거 같아 써보려 했지만 뭐가 문젠지 Mecab이 설치되지 않는... 일단 kkma.morphs를 한 결과는 이전보다 훨씬 좋습니다. 또 이번엔 re 를 사용해 전처리를 해서 좀 더 깔끔한 데이터가 만들어졌네요.
+
+<div align="center"> <img src="/image/embedding/6.jpg" /> </div>
+
+장, 이, 은 과 같은 단어는 subsampling이 어느 정도 해결해 줄 것이라 믿고 해봤습니다. 그런데 일단 역시 데이터가 너무 작아서인지 잘 안되는 듯 보이고 학습이 거의 되질 않습니다. 좀 더 큰 데이터 셋을 마련한 후 서버에서 환경 맞춘 후 다시 시도해보겠습니다.
+<div align="center"> <img src="/image/embedding/7.jpg" /> </div>
