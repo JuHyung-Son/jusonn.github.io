@@ -19,13 +19,6 @@ categories:
 
 그럼 먼저 Convex가 뭔지에 대해 먼저 알아야합니다. 한국말로 쉽게 말하면 아래로 볼록한 형태의 함수가 convex 함수입니다. 위로 볼록한 형태는 concave라고 하죠. Concave는 위아래로 뒤집으면 convex가 되기도 하고 실제 대부분의 문제는 어떤 비용을 최소화하는 것이기 때문에 convex가 더 대표적으로 쓰입니다.
 
-### Local, Global Minima
-
-그리고 이제 최적화에서 가장 중요한 minima를 봅니다. Minima에는 local minima와 global minima가 있습니다. 직관적으로 minima란 아래로 볼록한 부분을 말하고 local은 그런 부분 하나하나를 모두 뜻하며 global은 그 중에서 가장 값이 작은 부분은 뜻합니다. 이것을 수학적으로 정의하면,
-어떤 x가 feasible할 때 함수 f를 local neighborhood에서 최소화한다면, $$f(x) \leq f(y) ~ for ~ all ~ feasible~y, ||x-y||_{2} \leq \epsilon$$
-즉 x의 함수값이 x를 기준으로 엡실론 만큼의 주변 값의 함수값보다 작다면 f(x)는 local minima 입니다.
-위의 정의에서 엡실론 대신 도메인 전체가 된다면 f(x)는 함수값들 중 가장 작은 값이 되고 즉, global minima 입니다.
-
 ### Convex set
 >$C \subset \mathbb{R}^{n}$ is a convex set if $x,y \in C \rightarrow tx+(1-t)y \in C$ for all $0 \leq t \leq 1$
 
@@ -70,13 +63,42 @@ convex 함수의 구간을 자른 것이니 convex임이 당연하게 보입니�
 
 ### Ex
 
-Convex 함수엔 어떤 것들이 있는지 이미 알고 있는 쉬운 것들 중에 봅시다.
+우리가 익히 알고 있는 이런 함수들이 convex 입니다.
 - Exponential
 - $-log(x)$
 - Affine 함수
 - Quadratic 함수
 - Norm
-위 함수들은 이미 많이 봐왔고 그래프를 그려보면 딱봐도 Convex입니다. 일변수라 이해가 쉽지만 좀 더 어려운 예들이 나오면 전 어렵네요..
+위 함수들은 이미 많이 봐왔고 그래프를 그려보면 딱봐도 Convex입니다. 이것 말고 다른 것들이 나오기 시작하면 좀 어려워집니다.
+
+##Convex Optimization Problem
+
+자 convex opt의 필수 개념을 알았습니다. Convex set 과 convex function 말이죠. 이제 이것을 이용해 무슨 문제를 푼다는 건지 알아야겠죠. Convex opt problem은 최적화 문제를 푸는 방법 중의 하나입니다. Convex한 성질을 이용하기 때문에 convex opt 죠. 일반적인 최적화 문제는 이렇게 생겼습니다.
+$$minimize ~ f(x)$$
+$$subject ~ to ~ x \in C $$
+여기서 함수 f는 convex function이고 집합 C는 convex set 이라 convex optimization이 되는겁니다. 그리고 보통 조건 부분은 위에 식보다는 아래처럼 자세히 쓰는 것이 일반적입니다.
+$$subject ~ to ~ g_{i} (x) \leq 0 ,~ i=1,...,m$$
+$$h_{i}(x)=0, ~ i = 1,...,p$$
+여기서의 g는 convex function이고 h는 affine function이죠.
+그런데 각 g는 왜 0 이하이고 h는 0과 같을까요? 위에서 $\alpha - sublevel ~ set$을 봤었죠. 그걸 기억해보면 $g_{i}$의 0-sublevel set은 convex set이죠. 그리고 convex set들의 교집합은 convex set입니다. 반면 어떤 집합 $g_{i} \geq 0$ 이라면 그건 더이상 convex set이 아니게 됩니다. 따라서 그것으로 찾은 답(minimum)이 global minimum이라는 것을 보증하지 못하게 됩니다. 다음으로, 등호는 오직 affine function에서만 성립하기에 h는 affine function입니다.
+이런 문제에서 찾은 $f(x)$ 값을 **optimal value** 라고 하고 $p^*$로 표기합니다. 식으로는 다음처럼 표현하죠.
+$$p^* = min\{  f(x) : g_{i}(x) \leq 0 , i = 1, … , m, ~ h_{i} (x) = 0 , i=1,…, p \}$$
+그리고 이런 $p^*$로 가는 $x$를 **optimal point**라고 하고
+$$x^*$$ 로 표기합니다.
+
+## Global Optimal
+
+Convex 를 공부하는 건, 이 Convex의 성질이 $p^*$를 찾는데 아주 중요하기 때문입니다. 어떤 문제가 Convex 라면 그것의 모든 loacal optimal은 사실 global optimal입니다. 이 부분에 대한 증명은
+<a href=“http://web.stanford.edu/class/cs224n/readings/cs229-cvxopt.pdf”>stanford 강의노트</a> 9페이지에 잘 나와있습니다.
+증명이 따로 필요없다면 Global optimal과 local optimal의 부터 정의를 봅시다.
+
+> **Def**
+> A point x is **locally optimal** if it is feasible and if there exists some $R > 0$ such that all feasible points $z$ with $||x-z||_{2} \leq R$ satisfy $f(x) \leq f(z)$
+
+쉽게 말해 x에서 R 만큼의 모든 점 z에서 x의 함수값이 z의 함수값보다 작으면, 즉 아래로 볼록하면 그 $x$는 locally optimal 입니다.
+그리고 **Global optimal**은 x에서 R만큼의 z가 아닌 feasible한 모든 z에 대해서
+$$f(x) \leq f(z)$$ 가 성립하여야 합니다.
+Global optimal은 local optimal의 정의로부터 나오죠.
 
 참조
 Stanford - Convex Optimization review

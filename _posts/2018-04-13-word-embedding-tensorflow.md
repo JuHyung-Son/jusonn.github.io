@@ -178,5 +178,5 @@ with tf.Session(graph=train_graph) as sess:
 
 <div align="center"> <img src="/image/embedding/6.jpg" /> </div>
 
-장, 이, 은 과 같은 단어는 subsampling이 어느 정도 해결해 줄 것이라 믿고 해봤습니다. 그런데 일단 역시 데이터가 너무 작아서인지 잘 안되는 듯 보이고 학습이 거의 되질 않습니다. 좀 더 큰 데이터 셋을 마련한 후 서버에서 환경 맞춘 후 다시 시도해보겠습니다.
+장, 이, 은 과 같은 단어는 subsampling이 어느 정도 해결해 줄 것이라 믿고 해보았는데 잘 되질 않습니다. 조사와 같은 단어는 따로 처리를 해야하는 듯 하네요. 그리고 일단 역시 데이터가 너무 작아서인지 잘 안되는 듯 보이고 학습이 거의 되질 않습니다. 좀 더 큰 데이터 셋을 마련한 후 서버에서 환경 맞춘 후 다시 시도해보겠습니다.
 <div align="center"> <img src="/image/embedding/7.jpg" /> </div>
