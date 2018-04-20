@@ -10,7 +10,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-seo-tag
   - jekyll-sitemap
-
+highlighter: rouge
 markdown: kramdown
 kramdown:
   auto_id_prefix: 'heading-'
