@@ -4,7 +4,6 @@ title: Multivariate Gaussian 정리
 date: 2018-03-20T16:22:23+00:00
 author: JuHyung Son
 layout: post
-permalink: '/multivariate-gaussian-%ec%a0%95%eb%a6%ac/'
 tags:
    - Gaussian
    - Multivariate
