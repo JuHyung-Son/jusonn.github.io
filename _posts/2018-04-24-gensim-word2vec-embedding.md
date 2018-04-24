@@ -59,7 +59,7 @@ plt.savefig("seperate_15000_nolabel.png")
 
 <div align="center"> <img src="/image/gensim/6.png" /> </div>
 <div align="center"> <img src="/image/gensim/7.png" /> </div>
-<div align="center"> <img src="/image/gensim/8.png" /> </div>
+<div align="center"> <img src="/image/gensim/4.png" /> </div>
 
 자세히는 안보이지만 have, has 와 같은 단어들이 뭉쳐있고 숫자들도 따로 뭉쳐있습니다. 파란색을 루머, 빨간색은 루머가 아닌 텍스트에서 나온 단어들로 어느정도 구분이 있는 걸로 보입니다. 300 차원에서는 logistic regression으로 분류가 가능할 것처럼 보이네요.
 
