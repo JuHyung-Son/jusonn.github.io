@@ -75,7 +75,7 @@ prob = {word: 1-np.sqrt(threshold/law_freqs[word]) for word in law_word_counts}
 law_sampled = [word for word in law_int_words if random.random() < (1-prob[word])]
 ```
 
-다음, 딥러닝 레이어에 넣을 batch를 만듭니다. 저는 skip gram 구조를 이용하려고 합니다. skip gram은 한 단어가 주어지면 주변의 단어를 예측하는 모델이죠. 그럼 인풋은 단어 하나가 되겠고 라벨은  윈도우 사이즈 만큼의 주변 단어가 되겠네요. 이 부분은 함수를 만들어 임베딜 모델안에서 그때그때 생성하는 것이 효율적일 겁니다.
+다음, 딥러닝 레이어에 넣을 batch를 만듭니다. 저는 skip gram 구조를 이용하려고 합니다. skip gram은 한 단어가 주어지면 주변의 단어를 예측하는 모델이죠. 그럼 인풋은 단어 하나가 되겠고 라벨은 윈도우 사이즈 만큼의 주변 단어가 되겠네요. 이 부분은 함수를 만들어 임베딩 모델안에서 그때그때 생성하는 것이 효율적일 겁니다.
 
 <div align="center"> <img src="/image/embedding/4.jpg" /> </div>
 
