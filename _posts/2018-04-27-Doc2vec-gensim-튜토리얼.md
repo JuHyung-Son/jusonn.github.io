@@ -28,13 +28,19 @@ categories:
 <div align='center'> <img src="/image/gensim/doc2vec/1.png" />  </div>
 
 Word2vec에서의 목표는 아래 로그 확률의 평균을 최대화 시키는 것입니다.
+
 $$\frac{1}{T} \sum^{T-k}_{t=k} log p(w_{t} | w_{t-k},...,w_{t+k}) $$
+
 그리고 단어를 예측하는 과정은 softmax를 사용해 나타냅니다.
+
 $$p(w_{t} | w_{t-k},...,w_{t+k}) = \frac{e^{y_{w_i}}}{\sum_{i} e^{y_i}}$$
+
 그리고 라벨인 y는 다음 처럼 계산합니다.
+
 $$y = b+Uh(w_{t-k},...,w_{t+k};W)$$
 
 Doc2vec은 마지막의 y식을 다음과 같이 변환한 것입니다.
+
 $$y = b+Uh(w_{t-k},...,w_{t+k};W, D)$$
 
 위와 같이 기존의 word vector에 paragraph vector를 추가해 준 것을 Distributed memory model 이라고 합니다. 저자에 따르면 이 paragraph 토큰이 메모리와 같은 기능으로 현재의 문맥에서 빠진 것이나 단락에서의 주제를 기억해주는 역할을 한다네요. 그런 이유로 이 모델을 Distributed Memory Model of Paragraph Vectors(PV-DM)이라고 한답니다. paragraph 토큰은 정확하진 않지만 아마 문장과 문단의 주제, 태그를 의미하는 것 같습니다.
