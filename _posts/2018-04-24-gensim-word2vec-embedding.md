@@ -40,7 +40,7 @@ gensim에는 텍스트를 gensim의 인풋 형태로 변형해주며 그외 자�
 
  그럼 임베딩이 어떻게 되었나 TSNE를 이용해 2차원, 3차원으로 그려봅니다. 개인적으로 임베딩은 plot 결과가 가장 재밌는 거 같습니다.
 
- ```
+ ```python
  viz_words = 2000
  word_vector = np.concatenate((model.wv.vectors[:viz_words//2,:], model.wv.vectors[11489:11489+viz_words//2,:]), axis=0)
  tsne = TSNE(n_components=3)

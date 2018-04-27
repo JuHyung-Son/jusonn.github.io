@@ -71,7 +71,7 @@ convex 함수의 구간을 자른 것이니 convex임이 당연하게 보입니�
 - Norm
 위 함수들은 이미 많이 봐왔고 그래프를 그려보면 딱봐도 Convex입니다. 이것 말고 다른 것들이 나오기 시작하면 좀 어려워집니다.
 
-##Convex Optimization Problem
+## Convex Optimization Problem
 
 자 convex opt의 필수 개념을 알았습니다. Convex set 과 convex function 말이죠. 이제 이것을 이용해 무슨 문제를 푼다는 건지 알아야겠죠. Convex opt problem은 최적화 문제를 푸는 방법 중의 하나입니다. Convex한 성질을 이용하기 때문에 convex opt 죠. 일반적인 최적화 문제는 이렇게 생겼습니다.
 $$minimize ~ f(x)$$
@@ -89,7 +89,7 @@ $$x^*$$ 로 표기합니다.
 ## Global Optimal
 
 Convex 를 공부하는 건, 이 Convex의 성질이 $p^*$를 찾는데 아주 중요하기 때문입니다. 어떤 문제가 Convex 라면 그것의 모든 loacal optimal은 사실 global optimal입니다. 이 부분에 대한 증명은
-<a href=“http://web.stanford.edu/class/cs224n/readings/cs229-cvxopt.pdf”>stanford 강의노트</a> 9페이지에 잘 나와있습니다.
+<a href=“http://web.stanford.edu/class/cs224n/readings/cs229-cvxopt.pdf”> stanford 강의노트 </a> 9페이지에 잘 나와있습니다.
 증명이 따로 필요없다면 Global optimal과 local optimal의 부터 정의를 봅시다.
 
 > **Def**
