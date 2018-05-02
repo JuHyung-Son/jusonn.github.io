@@ -29,7 +29,7 @@ $$ \mathbb{H}(p,q) = - \sum _ {k} p _ {k} log q _ {k} $$
 
 <h2>KL divergence</h2>
 
-개인적으로는 KL divergence, Kullback-Leibler divergence는 요즘 특히 베이지언, VAE와 GAN을 보다보니 익숙해졌습니다. 위 세가지 모델에서 KL은 논문, 모델을 이해하는데 매우 중요합니다. KL divergence는 두 확률 분포의 dissimilarity를 측정합니다. 두 분포간의 거리를 측정한다고 보면 직관적으로 이해가 쉽지만 거리가 아니라는 것을 기억해야 합니다. 일반적으로 거리라면 A 에서 B의 거리와 B 에서 A의 거리가 같지만 KL divergence의 정의를 보면 p와 q의 순서가 바뀌면 값도 바뀌죠. 그래서 KL == 거리 는 틀린 말입니다. 
+개인적으로는 KL divergence, Kullback-Leibler divergence는 요즘 특히 베이지언, VAE와 GAN을 보다보니 익숙해졌습니다. 위 세가지 모델에서 KL은 논문, 모델을 이해하는데 매우 중요합니다. KL divergence는 두 확률 분포의 dissimilarity를 측정합니다. 두 분포간의 거리를 측정한다고 보면 직관적으로 이해가 쉽지만 거리가 아니라는 것을 기억해야 합니다. 일반적으로 거리라면 A 에서 B의 거리와 B 에서 A의 거리가 같지만 KL divergence의 정의를 보면 p와 q의 순서가 바뀌면 값도 바뀌죠. 그래서 KL == 거리 는 틀린 말입니다.
 
 $$\mathbb{KL} (p||q) = \sum ^{K} _ {k=1} p_{k} log \frac{p _ {k}}{q _ {k}}$$
 위의 로그를 쪼개어 나타내면 다음과 같습니다.
@@ -40,9 +40,13 @@ $$\mathbb{KL} (p||q) = \sum_{k} p _ {k} log p _ {k} - \sum _ {k} p _ {k} log q _
 <h3>Thm Information inequality</h3>
 
 $\mathbb{KL} (p||q) \geq 0$ with equality iff $p=q$
-먼저 Jensen’s inequality를 알아야 합니다. 어떤 convex function f 가 있을 때, $f(\sum \lambda x) \leq \sum \lambda f(x)$ 라는 것이 jensen’s inequality 입니다. 이제 본 증명을 보면,
-$A = \{x : p(x) < 0 \}$ 이라고 합니다.
-$- \mathbb{KL} (p||q) = -\sum p(x) log \frac{p(x)}{q(x)} = \sum p(x) log \frac{q(x)}{p(x)}$ log는 concave 함수이니 jensen’s inequality 를 적용할 수 있습니다. 또 $-\mathbb{KL}$임을 주의합시다.
-$\leq log \sum p(x) \frac{q(x)}{p(x)} = log \sum q(x) $
-$\leq log \sum_{x \in \Omega} q(x) = log 1 = 0$ 확률의 정의에 의해 전체 집합에 대해 확률 q의 합은 1입니다.
+먼저 Jensen’s inequality를 알아야 합니다. 어떤 convex function f 가 있을 때,
+$$f(\sum \lambda x) \leq \sum \lambda f(x)$$
+라는 것이 jensen’s inequality 입니다. 이제 본 증명을 보면, $A = \{x : p(x) < 0 \}$ 이라고 합시다.
+$$- \mathbb{KL} (p||q) = -\sum p(x) log \frac{p(x)}{q(x)} = \sum p(x) log \frac{q(x)}{p(x)}$$
+ log는 concave 함수이니 jensen’s inequality 를 적용할 수 있습니다. 또 $-\mathbb{KL}$임을 주의합시다.
+
+$$\leq log \sum p(x) \frac{q(x)}{p(x)} = log \sum q(x) $$
+$$\leq log \sum_{x \in \Omega} q(x) = log 1 = 0$$
+확률의 정의에 의해 전체 집합에 대해 확률 q의 합은 1입니다.
 따라서 $\mathbb{KL} \geq 0$ 이 됩니다.
