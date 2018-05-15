@@ -9,6 +9,8 @@ categories:
   - Deep_Learning
 ---
 
+스탠포드의 Differential calculus 리뷰입니다. 
+
 # Intro
 
 사실 미분은 고등학생 때부터 쓰던 개념이라 정작 미분이 뭐냐고 물으면 잘 생각이 나지 않지만, 보통 미분을 말한다면 이렇게 얘기합니다. 함수 $f : \mathbb{R} \rightarrow \mathbb{R}$ 에서
@@ -87,6 +89,6 @@ $\frac{\partial f}{\partial x_{i}} (x)$ 는 f에서 i 번째 값의 편미분값
 
 마지막으로 정리를 하면 이렇죠.
 
-<div align="center"> <img src="image/differential/1.png" /> </div>
+<div align="center"> <img src="/image/differential/1.png" /> </div>
 
 ## Jacobian
