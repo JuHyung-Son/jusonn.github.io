@@ -42,9 +42,11 @@ m명의 유저와 n개의 아이템이 있다고 하면 $m*n$ 모양의 행렬�
 유저 기반 CF에서는 유저들 간의 비슷함 정도를 계산해야 한다고 했습니다. 그러면 이 비슷함을 어떻게 계산할까요? 두가지 방법이 있습니다. 피어슨 상관계수와 코사인 유사도입니다. $u_{i,k}$ 를 유저 i와 k의 유사도라고 하고 v_{i,j} 를 유저 i가 아이템 j에 준 레이팅이라고 합시다. 이 때 각 방법은 다음처럼 표현됩니다.
 
 $$u_{ik} = \frac{\sum_{j} (v_{ij} - v_{i})(v_{kj} - v_{k})}{\sqrt{\sum_{j}(v_{ij} - v{i})^{2}} \sum_{j} (v_{kj} - v{k})^{2}}$$
+
 <div align="center"> Pearson Correlation </div>
 
 $$cos(u_{i}, u_{j}) = \frac{\sum^{m}_{k=1} v_{ik} v_{jk}}{\sqrt{\sum^{m}_{k=1} v^{2}_{ik} \sum^{m}_{k=1} v^{2}_{jk}}}$$
+
 <div align="center"> Cosine Similarity </div>
 
 이 두 방법은 모두 자주 쓰입니다. 차이점이라면 피어슨 계수는 모든 항목에 상수를 더해도 변화가 없다는 것이죠.
@@ -52,6 +54,7 @@ $$cos(u_{i}, u_{j}) = \frac{\sum^{m}_{k=1} v_{ik} v_{jk}}{\sqrt{\sum^{m}_{k=1} v
 이제 레이팅 되지 않은 아이템에 대한 유저의 선호도를 아래의 식으로 예측해볼 수 있습니다.
 
 $$v^{}_{ij} = K \sum_{v_{kj} \neq ?} u_{jk} v_{kj}$$
+
 <div align="center">Unrated Item Prediction</div>
 
 위 식을 예를 들면서 설명 해보겠습니다. 밑의 행렬에서 행은 유저를 나타내고 행은 영화를 나타냅니다. 마지막 행은 유저와 타겟 유저간의 유사도를 나타내고요. 각 값들은 유저가 영화에 매긴 레이팅입니다. 여기서는 유저 E를 타겟 유저라고 합시다.
@@ -112,6 +115,7 @@ $$v^{}_{ij} = K \sum_{v_{kj} \neq ?} u_{jk} v_{kj}$$
 $$\begin{pmatrix} x_{11} & x_{12} & ... & x_{1n} \\ x_{21} & ... \\ ... & ... \\ x_{m1} & ... & & x_{mn} \end{pmatrix} \approx \begin{pmatrix} u_{11} & ... & u_{1r} \\ ... & & \\ u_{m1} & ... & u_{mr} \end{pmatrix} \begin{pmatrix} s_{11} & 0 & ... \\ 0 & ... & \\ 0 & ... & s_{rr} \end{pmatrix} \begin{pmatrix} v_{11} & ... & v_{1n} \\ ... & & \\ v_{r1} & ... & v_{rn} \end{pmatrix}$$
 
 $$\hat{X} \approx US V^{T}$$
+
 <div align="center"> Singular Matrix </div>
 
 X는 utility matrix, U는 left singular matrix 로 유저와 latent factor 간의 관계를 나타냅니다. S는 diagonal matrix로 각 latent factor의 중요함의 정도를 나타내고 $V^{T}$ 는 right singular matrix로 아이템과 latent matrix 간의 유사도를 나타냅니다. 계속 언급되는 **latent vector** 가 뭘까요? 이건 유저나 아이템이 갖는 특성과 같은 것을 좀 더 넓은 범위로 설명하는 겁니다. 예를 들명, 음악에서 latent factor 는 음악이 속한 장르와 같은 것들을 포함하죠. SVD는 utility matrix에서 latent factor를 추출하면서 차원을 감소시킵니다. 본질적으로, 각각의 유저와 아이템을 r차원을 가진 latent space로 옮기는 거죠. 그렇게 하므로 유저와 아이템이 직접 비교가 가능해지면서 그들간의 관계를 더 이해하기 쉽게 됩니다. 밑의 그림을 보면 이해가 쉽죠.
