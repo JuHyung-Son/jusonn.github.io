@@ -9,7 +9,7 @@ categories:
   - Deep_Learning
 ---
 
-스탠포드의 Differential calculus 리뷰입니다. 
+스탠포드의 Differential calculus 리뷰입니다.
 
 # Intro
 
@@ -64,7 +64,9 @@ $\begin{pmatrix} a \\ b \end{pmatrix} \in \mathbb{R^{2}}$ 와 $h = \begin{pmatri
 $$f( \begin{pmatrix} a+h_{1} \\ b+h_{2} \end{pmatrix} ) =3(a+h_{1}) + (b+h_{2})^{2}$$
 
 $$= 3a + b^{2} 3h_{1} +2bh_{2} + h^{2}_{2}$$
+
 $$= f(a,b) + 3 h_{1} + 2bh_{2} + o(h)$$
+
 따라서 $d_{ \begin{pmatrix} a \\ b \end{pmatrix} } f ( \begin{pmatrix} h_{1} \\ h_{2} \end{pmatrix} ) = 3h_{1}+ 2bh_{2}$ 를 얻게 됩니다. 여기서 오른쪽의 식은 스칼라 곱으로 표현할 수 있죠.
 
 $$d_{ \begin{pmatrix} a \\ b \end{pmatrix} } f ( \begin{pmatrix} h_{1} \\ h_{2} \end{pmatrix} ) = < \begin{pmatrix} 3 \\ 2b \end{pmatrix} \| \begin{pmatrix} h_{1} \\ h_{2} \end{pmatrix} >$$
@@ -89,6 +91,35 @@ $\frac{\partial f}{\partial x_{i}} (x)$ 는 f에서 i 번째 값의 편미분값
 
 마지막으로 정리를 하면 이렇죠.
 
-<div align="center"> <img src="/image/differential/1.png" /> </div>
+<div align="center"> <img src="/image/differential/1.png"/> </div>
 
 ## Jacobian
+
+$f: \mathbb{R^{n}} \rightarrow \mathbb{R^{m}}$
+
+이번엔 위와 같이 n개의 변수를 이용해 m개의 값을 뱉는 함수가 있다고 해봅니다. 밑 수식과 같이 나타낼 수 있습니다. 각 $f_{i}$ 는 n개의 변수를 가지는 서로 다른 함수입니다.
+
+$$f: \begin{pmatrix} x_{1} \\ \cdot \\ \cdot \\ x_{n} \end{pmatrix} \rightarrow \begin{pmatrix} f_{1}(x_{1},...,x_{n}) \\ \cdot \\ \cdot \\ f_{m}(x_{1},...,x_{n}) \end{pmatrix}$$
+
+그리고 위에서 했던 gradient를 각각의 $f_{i}$ 에 대해서 구해줍니다. 이후 위와 같은 형태로 적어주면 다음과 같이 표기할 수 있죠.
+
+$$f \begin{pmatrix} x_{1} + h_{1} \\ \cdot \\ \cdot \\ x_{n} + h_{n} \end{pmatrix} = f \begin{pmatrix} x_{1} \\ \cdot \\ \cdot \\ x_{n} \end{pmatrix} + \begin{pmatrix} \frac{\partial f_{1}}{\partial x} (x)^{T} h \\ \cdot \\ \cdot \\ \frac{\partial f_{m}}{\partial x} (x)^{T} h \end{pmatrix} + o(h)$$
+
+여기서 **Jacobian J(X)** 은 위의 gradient 행렬에서 h를 뺀 부분으로 정의합니다.
+
+$$J(x) = \begin{pmatrix} \frac{\partial f_{1}}{\partial x} (x)^{T} \\ \cdot \\ \cdot \\ \frac{\partial f_{n}}{\partial x} (x)^{T} \end{pmatrix}$$
+
+여기서 $x$ 는 n개의 변수를 가진 벡터이므로 $x$ 도 풀어서 쓰면,
+
+$$J(x) =\begin{pmatrix} \frac{\partial f_{1}}{\partial x_{1}} (x) & ... & \frac{\partial f_{1}}{\partial x_{n}} (x) \\ \cdot \\ \cdot \\ \frac{\partial f_{m}}{\partial x_{1}} (x) & ... & \frac{\partial f_{m}}{\partial x_{n}} (x) \end{pmatrix}$$
+
+Jacobian은 $m * n$ 의 행렬임을 알 수 있죠.
+
+### Ex
+
+$$g: \mathbb{R^{3}} \rightarrow \mathbb{R^{2}}$$
+$$g( \begin{pmatrix} y1 \\ y2 \\ y3 \end{pmatrix} ) = \begin{pmatrix} y1+2y2+3y3 \\ y1y2y3 \end{pmatrix}$$
+
+여기서 Jacobian은 $2*3$ 의 형태를 띄겠죠.
+
+$$J(y) = \begin{pmatrix} 1 & 2 & 3 \\ y2y3 & y1y3 & y1y2 \end{pmatrix}$$
