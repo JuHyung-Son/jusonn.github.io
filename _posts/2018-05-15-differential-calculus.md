@@ -111,7 +111,8 @@ $$J(x) = \begin{pmatrix} \frac{\partial f_{1}}{\partial x} (x)^{T} \\ \cdot \\ \
 
 여기서 $x$ 는 n개의 변수를 가진 벡터이므로 $x$ 도 풀어서 쓰면,
 
-$$J(x) =\begin{pmatrix} \frac{\partial f_{1}}{\partial x_{1}} (x) & ... & \frac{\partial f_{1}}{\partial x_{n}} (x) \\ \cdot \\ \cdot \\ \frac{\partial f_{m}}{\partial x_{1}} (x) & ... & \frac{\partial f_{m}}{\partial x_{n}} (x) \end{pmatrix}$$
+$$J(x) =\begin{pmatrix} \frac{\partial f_{1}}{\partial x_{1}} (x) & ... & \frac{\partial f_{1}}{\partial x_{n}} (x) \\ \cdot \\ \cdot \\ \frac{\partial f_{m}}{\partial x_{1}} (x) & ... & \frac{\partial f_{m}}{\partial x_{n}} (x) \end{pmatrix
+  }$$
 
 Jacobian은 $m * n$ 의 행렬임을 알 수 있죠.
 
