@@ -169,7 +169,7 @@ def get_model():
 
 이 모델은 IDAO 대회의 데이터 셋에 적용시켜 성능을 보았습니다.
 
-Model | Score
+|Model | Score|
 |:--:|:--:|
 | SVD | 2218  |
 |Spotlight Implicit Factorization   | 1223  |
