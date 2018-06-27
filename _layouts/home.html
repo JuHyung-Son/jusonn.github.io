@@ -9,7 +9,7 @@
 
 <head>
    <meta name="google-site-verification" content="4Ilr0VtnY7bbfZGxBQY2Wt6YdiEBGDud7GV60wSa124" />
-   
+
     {% include common/meta.html %}
     <link href='{{ site.baseurl }}/assets/stylesheets/home.css' rel="stylesheet" type="text/css">
     {% include common/libraries.html %}
@@ -40,6 +40,9 @@
     <div id="section1" class="section" data-name="social">
         <h1 class="animated hidden">
             <a class="btn-enter btn-light" title="{{ site.data.i18n[site.lang].enter_blog }}" href="{{ site.paths.blog | relative_url }}">{{ site.data.i18n[site.lang].enter_blog }}</a>
+        </h1>
+        <h1 class="animated hidden">
+            <a class="btn-enter btn-light" title="{{ site.data.i18n[site.lang].enter_gallery }}" href="https://jusonn.github.io/beautifulphotos">{{ site.data.i18n[site.lang].enter_gallery }}</a>
         </h1>
         <div class="social-links animated hidden">
             <a class="btn-light ico-rss" href="{{ site.baseurl }}/feed.xml" rel="me" target="_blank" title="feed"></a>
