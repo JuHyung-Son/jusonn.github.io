@@ -15,6 +15,7 @@ categories:
 네이버 커넥트 재단에서 최성준 박사님이 강의한 베이지안 딥러닝의 내용입니다.
 
 <h2>Variational Inference</h2>
+
 개인적으로 Variational inference 라는 단어를 들어 본 지는 사실 꽤 되었습니다. 이게 뭘까 하면서 한 번 본 적은 있지만, 난무하는 수식에 그냥 하던거나 하자는 생각으로 덮었던 게 두번 정도 입니다. 그래서 사실 variational inference가 뭔지도 모르고 이 variational이 variance와 관련 있는건가 하는 궁금증도 들고 했습니다. 어쨋든 이 둘은 다른 이야기입니다.
 
 강의에서는 4개의 논문을 소개하며 결국 4개 모두 variational inference를 보여주는 것을 보여줍니다. 모두 베이지언의 토대를 이룬 논문들로 심심하면 읽어볼만 할 거 같은데 사실 읽어볼 거 같진 않아요. 첫 논문은 variational inference의 가장 첫 논문이라고 여겨지는 것들인데 지금의 것과는 많이 다르고 variational 이라는 용어 자체도 나오지 않습니다. 분야도 생소한 분야라 잘 모르겠고요. 전 그래서 이번 강의에서 가장 좋았던 내용은 그래서 variational inference 뭔지를 알아가는 과정이었습니다.

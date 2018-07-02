@@ -12,6 +12,7 @@ tags:
 Deep Learning for Computer Vision - Dr. Adrian Rosebrock 을 보고 정리한 글입니다.
 
 <h2>Convolution in CNN</h2>
+
 이미지 처리 분야는 CNN이라는 이미지를 다루는 딥러닝 기법이 나옴과 함께 엄청나게 빠른 속도로 발전하는 분야입니다. 요즘은 이미지가 아닌 다른 곳에도 CNN 쓰기는 하지만 말입니다. 그럼 Convolutional Neural Net에서 Convolution이 뭘까요? 영어 사전에서는 뒤틀린 것, 꼬인 것 이라고 하지만 와닿지 않습니다.
 
 <h3>Convolutional Neural Network</h3>
@@ -29,7 +30,9 @@ Input레이어와 그것의 output 레이어들로 구성된 신경망을 간단
  	<li>sum(A)를 한다.</li>
 </ol>
 
-수학적으로 표현한다면 다음과 같습니다. $$S(i,j) = convolution(I,K)(i,j) = \sum _ {m} \sum _ {n} K(i+m, j+n) I(m,n), ~ K=kernel,~ I = input ~ image$$
+수학적으로 표현한다면 다음과 같습니다.
+
+$$S(i,j) = convolution(I,K)(i,j) = \sum _ {m} \sum _ {n} K(i+m, j+n) I(m,n), ~ K=kernel,~ I = input ~ image$$
 
 이미지는 결국 width*height*channel로 이루어진 Multidimensional matrix 입니다. 즉, 거대한 행렬이죠. Kernel 혹은 Convolution은 그럼 블러 처리, 뽀샤시 효과 등을 처리하는 작은 행렬입니다. 이 작은 행렬은 큰 행렬의 앞에서 왼쪽에서 오른쪽으로, 위에서 아래로 이동하며 값들을 뽑아내는 것입니다. CNN에서는 이 작은 행렬을 Kernel이라고 합니다.
 
@@ -54,3 +57,4 @@ Conv layer는 CNN의 핵심 레이어로 이미지를 여러 필터로 적용해
 참조
 
 <a href="http://cs231n.github.io/convolutional-networks/">cs231n-CNN</a>
+
