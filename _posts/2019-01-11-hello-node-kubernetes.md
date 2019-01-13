@@ -10,7 +10,6 @@ tags:
 
 ### 구글 스터디 잼 입문반: Kubernetes in the google cloud를 수강 중입니다.
 
----
 
 쿠버네티스에 대한 소개는 여기를 봐봅시다. 
 https://kubernetes.io/
