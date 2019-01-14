@@ -7,6 +7,8 @@ tags:
   - js
 ---
 
+https://javascript.info 공부중
+
 자바스크립트에 들어서기 시작하는 저는 promise, async가 계속 헷갈립니다.
 그러니 한번 정리를 해볼까요.
 
@@ -208,4 +210,70 @@ fetch('/article/promise-chaining/user.json')
     setTimeout(() => img.remove(), 3000);
   })
   .catch(console.log(err))
+```
+
+## Async/await
+
+마지막으로 가장 최신 버전인 ```async/await``` 가 있습니다. 우리가 지향해야할 방법이죠.
+
+함수명 앞에 async 가 붙으면 함수는 promise 를 리턴한다는 의미입니다. promise 가 아닌 것을 리턴한다해도 내부적으로 promise로 바꾸어 리턴해줍니다. 아래처럼 간단하게 promise를 만들 수 있죠.
+
+```javascript
+async function f() {
+  return 1;
+}
+
+f().then(alert);
+```
+
+그럼 위에서 만든 promise 를 써야겠죠. 이 때는 ```await``` 를 사용합니다. 또 ```catch``` 를 사용해 에러를 잡을 수 있죠.
+
+```javascript
+async function f() {
+  let response = await fetch('http://naver.com');
+
+  f().catch(alert);
+}
+}
+```
+
+async/await 예시 
+
+```javascript
+class HttpError extends Error {
+  constructor(response) {
+    super('${response.status} for ${response.url}');
+    this.name = 'HttpError';
+    this.response = response;
+  }
+}
+
+async function loadJson(url) {
+  let response = await fetch(utl);
+  if (response.status == 200) {
+    return response.json();
+  } else {
+    throw new HttpError(response);
+  }
+}
+
+async function demoGithubUser() {
+  let user;
+  while(true) {
+    let name = prompt('Enter a name?', 'iliakan');
+
+    try {
+      user = await loadJson('https://api/github/com/users/${name}');
+      break;
+    } catch(err) {
+      if (err instanceof HttpError && err.response.status == 404) {
+        alert('No such user');
+      } else {
+        throw err;
+      }
+    }
+  }
+  alert ('full name: ${user.name}');
+  return user;
+}
 ```
