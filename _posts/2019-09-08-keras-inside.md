@@ -1,5 +1,5 @@
 ---
-title: 인사이드 tf 케라스
+title: tf 케라스 정리
 date: 2019-09-08
 author: JuHyung Son
 layout: post
