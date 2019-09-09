@@ -136,4 +136,106 @@ functional api 로는 이런 식으로 모델을 짤 수 있다. 간단하게 �
 3. 선언적임
 4. 디버깅은 construction 과정에서 함. (사실 파이썬을 쓰는게 아니고 선언만 하는 것, 에러가 있다면 DAG를 잘못 만들었을 떄의 에러임)
 
-작성중..
+functional api에도 역시 커스텀 loss와 metric을 넣을 수 있다. 아래의 코드를 보자.
+
+```python
+class MeanSquaredError(Loss):
+    def call(self, y_true, y_pred):
+        return tf.reduce_mean(tf.square(y_pred - y_true), axis=-1)
+```
+Metric의 경우 3가지 메소드를 구현해야 한다.
+```python
+class CategoricalTruePositives(keras.metircs.Metric):
+    def __init__(self, name='bianry_true_positives', **kwargs):
+        super(CategoricalTruePositives, self).__init__(name=name,
+                                                       **kwargs)
+        self.true_positives = self.add_weight(name='tp', initializer='zeros')
+    
+    def update_state(self, y_true, y_pred, sample_weight=None):
+        y_pred = tf.argmax(y_pred)
+        values = tf.equal(tf.cast(y_true, 'int32'), tf.cast(y_pred, 'int32'))
+        values = tf.cast(values, 'float32')
+        if sample_weight is not None:
+            sample_weight = tf.cast(sample_weight, 'float32')
+            values = tf.multiply(values, sample_weight)
+        self.true_positives.assgin_add(tf.reduce_sum(values))
+    
+    def result(self):
+        return self.true_positives
+    
+    def reset_states(self):
+        self.true_positives.assgin(0.)
+
+model.complie(
+    optimizer=RMSprop(),
+    loss=SparseCategoricalCrossentropy(),
+    metrics=[CategoricalTruePositives()]
+)
+
+model.fit(dataset, epochs=3)
+```
+
+그런데 실제 모델을 보다보면 레이어 중간중간의 결과물을 메트릭에 써야할 때가 있는데 이 역시 `add_metric` 메소드를 사용한 커스텀 레이어를 만들어 해결 가능하다.
+
+```python
+class MetricLoggingLayer(Layer):
+    def call(self, inputs):
+        # aggregation defines how to aggregate the per-batch values
+        # over each epoch:
+        # in this case we simply average them
+        self.add_metric(std(inputs),
+                        name='std_of_activation',
+                        aggregation='mean')
+        return inputs
+
+inputs = keras.Input(shape=(784,), name='digits')
+x = layers.Dense(64, activation='relu')(inputs)
+x = MetricLoggingLayer()(x)
+x = layers.Dense(64, activation='relu')(x)
+outputs = layers.Dense(10, activation='softmax')(x)
+
+model = keras.Model(inputs,inputs, outputs=outputs)
+model.complie(optimizer=RMSprop(),
+              loss='sparse_categorical_crossentropy')
+model.fit(dataset, epochs=1)
+```
+
+이런 endpoint pattern이라고 불리는 방식으로 모델을 짠다면 이렇게 가능하다. `add_loss, add_metric` 을 이용해 loss와 metric을 계산하면서 return 값으로는 레이어를 통한 값만 넘기는 방식이다. 하지만 이 방식은 target이 인풋으로 들어가므로 실제 데이터로 모델을 테스트할 때는 dummy target 값을 임의로 넣어주어야 한다.
+```python
+class LogisticEndpoint(Layer):
+
+    def __init__(self, name=None):
+        super(LogisticEndpoint, self).__init__(name=name)
+        self.loss_fn = BinaryCrossentorpy(from_logits=True)
+
+    def call(self, inputs):
+        y_true, y_pred = inputs['targets'], inputs['logits']
+
+        # compute the training-time loss value and add it to the layer using
+        # 'self.add_loss()'
+        loss = self.loss_fn(y_true, y_pred, sample_weight)
+        self.add_loss(loss)
+
+        # log the loss as a metric
+        self.add_metirc(loss, name=self.name, aggregation='mean')
+
+        # return the inference-time prediction tensor
+        return tf.nn.softmax(y_pred)
+
+inputs = keras.Input((764,), name='inputs')
+logits = keras.layers.Dense(1)(inputs)
+targets = keras.Input((1,), name='targets')
+preds = LogisticEndpoint()({'targets': targets,
+                            'logits': logits})
+model = keras.Model([inputs, targets], [preds])
+
+data = {
+    'inputs': np.random.random((1000, 764)),
+    'targets': np.random.random((1000, 1))
+}
+
+model.compile(keras.optimizers.Adam(1e-3))
+model.fit(data, epochs=2)
+```
+
+물론 실제 모델을 보다보면 위 방법들로 해결할 수 없는 모델들이 많다. 당연히 functional api는 모든 상황을 해결할 수는 없고 저자도 그렇다고 한다. 그럴땐 그냥 subclass로 직접 모델을 짜보자.
