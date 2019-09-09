@@ -3,6 +3,8 @@ title: 인사이드 tf 케라스
 date: 2019-09-08
 author: JuHyung Son
 layout: post
+categories:
+  - Deep_Learning
 tags:
   - ml
 ---
