@@ -21,11 +21,11 @@ sass:
   style: compressed
 
 # Site Data
-url:  # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: # the subpath of your site, e.g. /blog
+url: https://sallys.space # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /blog # the subpath of your site, e.g. /blog
 title: JuHyung Son
-description: "A blog of JuWorld"
-keywords: 'jekyll,Machine Learning,Deep learning,blog'
+description: "sally's space"
+keywords: 'jekyll, Machine Learning, Deep learning, blog'
 author:
   name:
   job_title:
@@ -36,7 +36,7 @@ author:
       url: https://github.com/jusonn
 home:
   section1: <h1>JuHyung Son</h1>
-  section2: <h2>Welcome to JuWorld!</h2>
+  section2: <h2>Welcome!</h2>
   section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/jusonn" title="View on GitHub"></a></div>
 blog:
   cc_license: http://creativecommons.org/licenses/by-sa/4.0/ # A link to CC License of your choice.
