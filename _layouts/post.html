@@ -52,6 +52,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
                         <ul class="list-tag list-linear">
                             <li class="list-head">{{ site.data.i18n[site.lang].tags }}: </li>
                             {% assign tags_list = page.tags | sort %} {% include helpers/tags_list %}
+                            {% include adcontent.html%}
                         </ul>
                     </div>
                     <div itemprop="articleBody">
