@@ -14,7 +14,7 @@ categories:
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-hanxiao의 (bert-as-service)[https://hanxiao.github.io/2019/01/02/Serving-Google-BERT-in-Production-using-Tensorflow-and-ZeroMQ/]를 번역하였습니다.
+hanxiao의 [bert-as-service](https://hanxiao.github.io/2019/01/02/Serving-Google-BERT-in-Production-using-Tensorflow-and-ZeroMQ/)를 번역하였습니다.
 
 #  BERT as service with tf and ZeroMQ
 
@@ -74,7 +74,7 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
 두 역할의 분리는 client/server 역할을 더 명확히 한다. 피쳐 추출이 보틀넥 일 때는 GPU 서버를 확장하면 된다. downstream 모델이 보틀넥 일 때는 CPU 머신을 추가하거나 양자화로 최적화하면 된다. 학습 데이터가 너무 오래되었을 때는 재학습 후 서버를 버전 관리하면 된다. 모든 downstream 모델은 즉시 업데이트 결과를 얻을 수 있다. 마지막으로 모든 요청이 한 곳으로 옮으로써 GPU 서버는 적은 유휴 주기를 가져야하고 모든 비용이 잘 쓰여야 한다.
 
  통신 서버를 구축하기 위해 ZeroMQ와 그 파이썬 바인딩인 PyZMQ를 사용했다. 이건 가볍고 빠른 메세징 구현체이다. 양방향 메시지는 TCP/IPC/다르 프로토콜을 통해 보내고 받을 수 있다.
-
+```python
     import zmq
     import zmq.decorators as zmqd
     
@@ -88,7 +88,7 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
     def recv(sock):
     	sock.connect('tcp://localhost:5555')
     	print(sock.recv())
-
+```
 - 빠른 추론 속도
 
 구글이 공개한 BERT 코드는 학습과 평가를 제공한다. 그래서 다른 보조 노드들은 서빙전에 그래프에서 삭제되어야 한다. 또한 만약 k번째 레이어에서 풀링을 한다면, K+1 레이어부터 마지막 레이어까지의 파라미터를 추론에 필요가 없으니 삭제되어도 된다. 다음 그림은 일반적인 서빙전 과정이다.
@@ -125,7 +125,7 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
 - 낮은 레이턴시로 서빙하기
 
 우리는 매번 요청이 올 때마다 새 BERT 모델을 켤 필요가 없다. 대신, 처음에 한번 모델을 켜고 이벤트 루프에서 요청을 듣고 있으면 된다. `sess.run(feed_dict={...})` 가 한 방법이지만 충분하진 않다. 게다가 BERT 소스코드는 고수준 API인 tf.Estimator로 래핑되어서 이벤트 리스너를 넣을 방법이 필요하다. 가장 좋은 방법은 tf.Data의 제너레이터를 사용하는 것이다.
-
+```python
     def input_fn_builder(sock):
     	def gen():
     		while True:
@@ -151,7 +151,7 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
     # keep listen and predict
     for result in estimator.predict(input_fn_builder(client), yield_single_example=False):
     	send_back(result)
-
+```
 `estimator.predict()` 는 끝나는 않는 루프와 제너레이터를 리턴한다. 새로운 요청이 오면, 제너레이터를 데이터를 준비하고 estimator에 넘겨준다. 그렇지 않으면 제너레이터는 `sock.recv_multipart()`에 의해 다음 요청까지 블락된다.
 
 `.prefetch(10)` 을 보면 prefetch 메커니즘을 추가하는건 효과적으로 배치 준비 시간을 없앨 수 있다. 모델이 추론을 하고 있느 도중 새 요청이 오면 prefetch를 안한다면 추론이 끝나기 전까지 아무 준비작업도 안하는 반면 `.prefetch(10)` 을 하면 추론중에도 10개의 배치를 준비할 것이다. 실제로 prefetch를 통해 10%의 속도 향상을 보았고 GPU 머신에서 효과적이다.
@@ -178,7 +178,7 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
 - ventilator와 워커 사이의 다수의 소켓이 있다. 요청 사이즈가 16 문장보다 작다면, ventilator는 작업을 첫 소켓으로 보낸다. 그렇지 않으면 ventilator는 작업을 작은 단위로 나눈 후 1~7 사이의 랜덤 소켓으로 보낸다. 워커는 8개의 소켓으로부터 계속 작업을 받고 낮은 소켓 번호부터 처리한다. 이것은 작은 요청이 크고 자주오는 요청에 의해 블락되지 않게 한다. 작은 요청은 항상 첫 소켓으로 보내지고 가장 먼저 처리된다. 다수의 클라이언트로부터 오는 크고 빈번한 요청은 서로 다른 소켓에 보내져 같은 확률로 워커에 할당되어 처리된다.
 - ventilator, worker와 sink 의 프로세스가 분리되어 있다. 프로세스 레벨로 컴포넌트를 분리하는건 서버가 튼튼하고 레이턴시를 낮게 할 수 있게 한다. sink와 ventilator가 같은 모듈에 결합될 수 있지 않냐고 할 수 있지만, 결과 메세지는 프로세스를 지나 보내져야만 한다. 결국 통신 코스트를 줄이지 못한다. 게다가, 프로세스들을 분리하는건 전체 로직과 메세지 흐름을 간단하게 한다. 모든 컴포넌트는 하나의 작업에만 집중하고 쉽게 sink나 ventilator를 스케일링할 수 있다.
 
-(깃헙)[https://github.com/hanxiao/bert-as-service]에 벤치마크가 있으니 참고하길 바란다.
+[깃헙](https://github.com/hanxiao/bert-as-service)에 벤치마크가 있으니 참고하길 바란다.
 
 ## 요약
 
