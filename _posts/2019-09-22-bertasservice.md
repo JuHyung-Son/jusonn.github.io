@@ -75,19 +75,19 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
 
  통신 서버를 구축하기 위해 ZeroMQ와 그 파이썬 바인딩인 PyZMQ를 사용했다. 이건 가볍고 빠른 메세징 구현체이다. 양방향 메시지는 TCP/IPC/다르 프로토콜을 통해 보내고 받을 수 있다.
 ```python
-    import zmq
-    import zmq.decorators as zmqd
-    
-    @zmqd.socket(zmq.PUSH)
-    def send(sock):
-    	sock.bind('tcp://*:5555')
-    	sock.send(b'hello')
-    
-    # in another process
-    @zmqd.socket(zmq.PULL)
-    def recv(sock):
-    	sock.connect('tcp://localhost:5555')
-    	print(sock.recv())
+import zmq
+import zmq.decorators as zmqd
+
+@zmqd.socket(zmq.PUSH)
+def send(sock):
+  sock.bind('tcp://*:5555')
+  sock.send(b'hello')
+
+# in another process
+@zmqd.socket(zmq.PULL)
+def recv(sock):
+  sock.connect('tcp://localhost:5555')
+  print(sock.recv())
 ```
 - 빠른 추론 속도
 
@@ -98,59 +98,59 @@ BERT의 대표적인 특징은 multi-head self-attention network, dual training 
 구체적으로 freezing은 모든 tf.Variable을 tf.Constant로 바꾼다. Pruning은 불필요한 노드를 그래프에서 삭제하는 과정이다. 양자화는 모든 파라미터를 낮은 정확도의 자료형으로 바꾸는 것이다. tf.float32를 tf.float16이나 tf.uint8로 말이다. 현재 대부분의 양자화 방법은 모바일 장치를 위해 구현되어 있고 X86 장치에선 별다른 차이가 없을 수 있다.
 
 텐서플로우는 위의 작업을 할 수 있는 API를 제공한다. 인풋과 아웃풋 노드만 지정해주면 된다.
+```python
+input_tensors = [input_ids, input_mask, input_type_ids]
+output_tensors = [pooled]
 
-    input_tensors = [input_ids, input_mask, input_type_ids]
-    output_tensors = [pooled]
-    
-    from tensorflow.python.tools.optimize_for_inference_lib import optimize_for_inference
-    from tensorflow.graph_util import convert_variables_to_constants
-    
-    # get graph
-    tmp_g = tf.get_default_graph().as_graph_def()
-    
-    sess = tf.Session()
-    # load parameters then freeze
-    sess.run(tf.global_variables_initializer())
-    tmp_g = convert_variables_to_constants(sess, tmp_g, [n.name[:-2] for n in output_tensors])
-    
-    # pruning
-    dtypes = [n.dtype for n in input_tensors]
-    tmp_g = optimize_for_inference(tmp_g, [n.name[:-2] for n in input_tensors],
-        [n.name[:-2] for n in output_tensors],
-        [dtype.as_datatype_enum for dtype in dtypes], False)
-        
-    with tf.gfile.GFile('optimized.graph', 'wb') as f:
-        f.write(tmp_g.SerializeToString())
+from tensorflow.python.tools.optimize_for_inference_lib import optimize_for_inference
+from tensorflow.graph_util import convert_variables_to_constants
 
+# get graph
+tmp_g = tf.get_default_graph().as_graph_def()
+
+sess = tf.Session()
+# load parameters then freeze
+sess.run(tf.global_variables_initializer())
+tmp_g = convert_variables_to_constants(sess, tmp_g, [n.name[:-2] for n in output_tensors])
+
+# pruning
+dtypes = [n.dtype for n in input_tensors]
+tmp_g = optimize_for_inference(tmp_g, [n.name[:-2] for n in input_tensors],
+    [n.name[:-2] for n in output_tensors],
+    [dtype.as_datatype_enum for dtype in dtypes], False)
+    
+with tf.gfile.GFile('optimized.graph', 'wb') as f:
+    f.write(tmp_g.SerializeToString())
+```
 - 낮은 레이턴시로 서빙하기
 
 우리는 매번 요청이 올 때마다 새 BERT 모델을 켤 필요가 없다. 대신, 처음에 한번 모델을 켜고 이벤트 루프에서 요청을 듣고 있으면 된다. `sess.run(feed_dict={...})` 가 한 방법이지만 충분하진 않다. 게다가 BERT 소스코드는 고수준 API인 tf.Estimator로 래핑되어서 이벤트 리스너를 넣을 방법이 필요하다. 가장 좋은 방법은 tf.Data의 제너레이터를 사용하는 것이다.
 ```python
-    def input_fn_builder(sock):
-    	def gen():
-    		while True:
-    			# recv req
-    			client_id, raw_msg = sock.recv_multipart()
-    			msg = jsonapi.loads(raw_msg)
-    			tmp_f = convert_lst_to_feauters(msg)
-    			yield {'client_id': client_id,
-    							'input_ids': [f.input_ids for f in tmp_f],
-    							'input_mask': [f.input_mask for f in tmp_f],
-    							'input_type_ids': [f.input_type_ids for f in tmp_f]}
-    
-    	def input_fn():
-    	        return (tf.data.Dataset.from_generator(gen,
-    	            output_types={'input_ids': tf.int32, 'input_mask': tf.int32, 'input_type_ids': tf.int32, 'client_id': tf.string},
-    	            output_shapes={'client_id': (), 'input_ids': (None, max_seq_len), 'input_mask': (None, max_seq_len),'input_type_ids': (None, max_seq_len)})
-    	                .prefetch(10))
-      return input_fn
-    
-    # initialize BERT model once
-    estimator = Estimator(model_fn=bert_model_fn)
-    
-    # keep listen and predict
-    for result in estimator.predict(input_fn_builder(client), yield_single_example=False):
-    	send_back(result)
+def input_fn_builder(sock):
+  def gen():
+    while True:
+      # recv req
+      client_id, raw_msg = sock.recv_multipart()
+      msg = jsonapi.loads(raw_msg)
+      tmp_f = convert_lst_to_feauters(msg)
+      yield {'client_id': client_id,
+              'input_ids': [f.input_ids for f in tmp_f],
+              'input_mask': [f.input_mask for f in tmp_f],
+              'input_type_ids': [f.input_type_ids for f in tmp_f]}
+
+  def input_fn():
+          return (tf.data.Dataset.from_generator(gen,
+              output_types={'input_ids': tf.int32, 'input_mask': tf.int32, 'input_type_ids': tf.int32, 'client_id': tf.string},
+              output_shapes={'client_id': (), 'input_ids': (None, max_seq_len), 'input_mask': (None, max_seq_len),'input_type_ids': (None, max_seq_len)})
+                  .prefetch(10))
+  return input_fn
+
+# initialize BERT model once
+estimator = Estimator(model_fn=bert_model_fn)
+
+# keep listen and predict
+for result in estimator.predict(input_fn_builder(client), yield_single_example=False):
+  send_back(result)
 ```
 `estimator.predict()` 는 끝나는 않는 루프와 제너레이터를 리턴한다. 새로운 요청이 오면, 제너레이터를 데이터를 준비하고 estimator에 넘겨준다. 그렇지 않으면 제너레이터는 `sock.recv_multipart()`에 의해 다음 요청까지 블락된다.
 
