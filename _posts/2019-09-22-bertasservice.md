@@ -7,13 +7,6 @@ categories:
   - Dev
   - Deep_learning
 ---
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
-    data-ad-client="ca-pub-6867386914419256" data-ad-slot="8283552650"></ins>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 hanxiao의 [bert-as-service](https://hanxiao.github.io/2019/01/02/Serving-Google-BERT-in-Production-using-Tensorflow-and-ZeroMQ/)를 번역하였습니다.
 
 #  BERT as service with tf and ZeroMQ
