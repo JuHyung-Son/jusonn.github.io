@@ -1,5 +1,5 @@
 ---
-title: tf 케라스 정리
+title: tensorflow 2.0 케라스 정리
 date: 2019-09-08
 author: JuHyung Son
 layout: post
