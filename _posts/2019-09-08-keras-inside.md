@@ -7,6 +7,7 @@ categories:
   - Deep_Learning
 tags:
   - ml
+  - tf
 ---
 
 구글 내부에서 진행하는 tf keras 트레이닝을 보고 간단하게 정리해봤다.

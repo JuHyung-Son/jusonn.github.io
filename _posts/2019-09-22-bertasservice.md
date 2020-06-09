@@ -6,6 +6,10 @@ layout: post
 categories:
   - Dev
   - Deep_learning
+tag:
+  - serving
+  - deep learning
+  - 서빙
 ---
 hanxiao의 [bert-as-service](https://hanxiao.github.io/2019/01/02/Serving-Google-BERT-in-Production-using-Tensorflow-and-ZeroMQ/)를 번역하였습니다.
 
